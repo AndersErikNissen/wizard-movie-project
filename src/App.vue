@@ -17,7 +17,9 @@
     </nav>
   <router-view/>
   <!-- {{ allSeries.entries[2].title }} -->
-  {{ allMovies2017.entries[0].title }}
+  <div v-if="allMovies2017">
+    {{ allMovies2017.entries[19].title }}
+  </div>
 </template>
 
 <script>
