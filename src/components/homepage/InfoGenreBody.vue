@@ -1,6 +1,6 @@
 <template>
       <section>
-          <info-header></info-header>
+          <info-header :genreObj="genreObj"></info-header>
           
         <info-box v-for="(item, index) in items" :key="index" :program="item">
             
@@ -17,7 +17,15 @@ import InfoBox from '../global/ProgramInfobox.vue';
 export default {
     name: "InfoGenreBody",
     props: {
-      
+        genreObj: {
+            type: Object,
+            // One way to have a default: is to use a function to set an object's default
+            default: () => ({
+                title: 'Title is Missing?',
+                counter: 0,
+                link: '/'
+            })
+        }
     },
     components: {
         'info-header': Header,

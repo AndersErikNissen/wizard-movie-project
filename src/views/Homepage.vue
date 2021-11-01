@@ -1,7 +1,8 @@
 <template>
     <section>
         <h1>Homepage</h1>
-        <info-genre-body></info-genre-body>
+        <!-- Rember you can useKebab-case when using props in HTML -->
+        <info-genre-body :genreObj="testObj"></info-genre-body>
 
     </section>
 </template>
@@ -13,6 +14,15 @@ export default {
     name: 'Homepage',
     components: {
         "info-genre-body": InfoGenreBody
+    },
+    data() {
+        return {
+            testObj: {
+                title: "Yay!!",
+                counter: 1111,
+                link: "/"
+            }
+        }
     }
 }
 </script>
