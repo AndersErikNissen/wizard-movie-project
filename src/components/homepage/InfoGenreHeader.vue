@@ -1,24 +1,30 @@
 <template>
-    <article>
+    <!-- <article>
         <section>
             <h2> {{ genreTitle }} </h2>
             <h3> {{ genreCounter }} </h3>
         </section>
 
-
-    </article>    
+        <div>
+            <router-link :to="genreLink">See more</router-link>
+        </div>
+    </article>     -->
+    <div>
+        <h2>Genre Test</h2>
+    </div>
 </template>
 
 <script>
 export default {
+    name: "InfoGenreHeader",
     props: {
         genreTitle: {
             type: String,
             default: 'Genre Title Missing?'
         },
         genreCounter: {
-            type: Number,
-            default: 0
+            type: String,
+            default: "0"
         }
     },
     date() {

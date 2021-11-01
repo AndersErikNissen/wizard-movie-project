@@ -1,10 +1,19 @@
 <template>
-    <h1>Homepage</h1>
+    <section>
+        <h1>Homepage</h1>
+        <info-genre-body></info-genre-body>
+
+    </section>
 </template>
 
 <script>
+// Import
+import InfoGenreBody from '../components/homepage/InfoGenreBody.vue'
 export default {
-    name: 'Homepage'
+    name: 'Homepage',
+    components: {
+        "info-genre-body": InfoGenreBody
+    }
 }
 </script>
 
