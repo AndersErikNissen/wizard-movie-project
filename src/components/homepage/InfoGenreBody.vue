@@ -1,10 +1,16 @@
 <template>
       <section>
-          <info-header :genreObj="genreObj"></info-header>
-          
-        <info-box v-for="(item, index) in items" :key="index" :program="item">
-            
-        </info-box>
+          <section>
+            <info-header :genreObj="genreObj.movie"></info-header>
+
+            <info-box v-for="(program, index) in programArray.movie.dataArray" :key="index" :program="program"></info-box>
+          </section>
+          <section>
+            <info-header :genreObj="genreObj.series"></info-header>
+
+            <info-box v-for="(program, index) in programArray.series.dataArray" :key="index" :program="program"></info-box>
+          </section>
+
         
       </section>
 </template>
@@ -25,6 +31,9 @@ export default {
                 counter: 0,
                 link: '/'
             })
+        },
+        programArray: {
+            type: Object
         }
     },
     components: {
@@ -33,16 +42,10 @@ export default {
     },
     data() {
         return {
-            items: [
-                {
-                    title: "Test 1",
-                    img: false
-                },
-                {
-                    title: "Test 2",
-                    img: false
-                },
-            ]
+            headerObj: {
+                title: null,
+                counter: null
+            }
         }
     },
     created() {

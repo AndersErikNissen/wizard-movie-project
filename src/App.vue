@@ -16,29 +16,15 @@
         </ul>
     </nav>
   <router-view/>
-  <!-- {{ allSeries.entries[2].title }} -->
-  <div v-if="allMovies2017">
-    {{ allMovies2017.entries[19].title }}
-  </div>
 </template>
 
 <script>
-import axios from 'axios';
 export default {
   name: "App",
   data() {
     return {
-      allSeries: false,
-      allMovies2017: false,
+
     }
-  },
-  created() {
-    axios
-    .get('https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&lang=da&byProgramType=series')
-    .then((response) => this.allSeries = response.data);
-    axios
-    .get('https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&range=1-20&byTags=genre:action&byYear=2017&byProgramType=movie')
-    .then((response) => this.allMovies2017 = response.data);
   }
 }
 </script>

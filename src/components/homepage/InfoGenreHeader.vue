@@ -1,12 +1,12 @@
 <template>
     <article>
         <section>
-            <h2> {{ genreObj.title }} </h2>
-            <h3> {{ genreObj.counter }} </h3>
+            <h2> {{ genreObj.name }} </h2>
+            <h3> {{ genreObj.counter }} found </h3>
         </section>
 
         <div>
-            <router-link :to="genreObj.link">See more</router-link>
+            <!-- <router-link :to="genreObj.link">See more</router-link> -->
         </div>
     </article>    
 </template>
