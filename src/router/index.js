@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Homepage from '../views/Homepage.vue'
+import Homepage from '../views/Homepage.vue';
 
 const routes = [
   {
@@ -23,6 +23,11 @@ const routes = [
     path: '/user-favorites',
     name: 'UserFavorites',
     component: () => import('../views/UserFavorites.vue'),
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "not-found",
+    component: () => import("../views/ErrorPage.vue")
   }
 ]
 

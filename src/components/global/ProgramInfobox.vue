@@ -44,5 +44,15 @@ export default {
 </script>
 
 <style scoped>
-
+.div_Img {
+    display: inline-block;
+    text-decoration: none;
+}
+a {
+    /* Removing the underline after using router-link */
+    text-decoration: none;
+}
+h4 {
+    color: black;
+}
 </style>
