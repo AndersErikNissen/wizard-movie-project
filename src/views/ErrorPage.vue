@@ -1,7 +1,13 @@
 <template>
-    <main>
-        <h1>404 Error</h1>
-        <h2>Something went wrong</h2>
-        <router-link to="/"></router-link>
-    </main>
+    <error-get></error-get>
 </template>
+
+<script>
+import ErrorGET from '../components/global/ErrorGET.vue';
+export default {
+    name: "ErrorPage",
+    components: {
+        "error-get": ErrorGET
+    }
+}
+</script>

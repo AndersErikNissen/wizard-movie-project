@@ -25,9 +25,14 @@ const routes = [
     component: () => import('../views/UserFavorites.vue'),
   },
   {
+    path: '/notfound',
+    name: 'NotFound',
+    component: () => import('../views/ErrorPage.vue')
+  },
+  {
     path: "/:pathMatch(.*)*",
-    name: "not-found",
-    component: () => import("../views/ErrorPage.vue")
+    name: "LastStop",
+    redirect: '/notfound'
   }
 ]
 

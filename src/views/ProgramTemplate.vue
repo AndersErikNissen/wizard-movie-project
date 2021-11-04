@@ -8,9 +8,9 @@
 
             <router-link to="/program/229503528355">Link</router-link>
         </section>
-        
+
         <!-- V-if is used insted of v-else, because it should be loaded before the GET-request is done and that there is an error -->
-        <error-get v-if="!foundData && idData"></error-get>
+        <error-get v-if="!foundData && idData" :description="updateError"></error-get>
     </main>    
 </template>
 
@@ -27,6 +27,12 @@ export default {
     },
     components: {
         "error-get": ErrorGET
+    },
+    computed: {
+        updateError: function () {
+            // Just a tiny thing to change in the error message, should the user not know what is meant with an object.
+            return this.idData.description.replace("object", "program")
+        }
     },
     data() {
         return {
