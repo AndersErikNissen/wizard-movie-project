@@ -2,18 +2,12 @@
     <section>
         <h1>Homepage</h1>
         <!-- Rember you can useKebab-case when using props in HTML -->
-        <info-genre-body :genreObj="genreArray[0].action.info" :programArray="genreArray[0].action.data"></info-genre-body>
+        <info-genre-body :genreObj="genreArray[0].info" :programArray="genreArray[0].data"></info-genre-body>
 
         <div>
             <button @click="logData"></button>
         </div>
-        <!-- <div v-if="loaded">
-            <ul>
-                <li v-for="item in genreArray[0].action.movie.data" :key="item.id">
-                    {{ item }} {{ genreArray[0].action.movie.counter }}
-                </li>
-            </ul>
-        </div> -->
+     
     </section>
 </template>
 
@@ -36,31 +30,28 @@ export default {
             loaded: false,
             genreArray: [
                 {
-                    action: {
-                        info: {
-                            name: "action",
-                            movie: {
-                                name: 'Movies',
-                                counter: 0,
-                            },
-                            series: {
-                                name: 'Series',
-                                counter: 0,
-                            }
-                        },
-
-                        data: {
-                            movie: {
-                                url: 'https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&lang=en&byTags=genre:action&byProgramType=movie',
-                                // &fields=title,description,programType,tdc$imdbid
-                                dataArray: null
-                            },
-                            series: {
-                                url: 'https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&lang=en&byTags=genre:action&byProgramType=series',
-                                dataArray: null
-                            }
-                        }
+                info: {
+                    name: "action",
+                    movie: {
+                        name: 'Movies',
+                        counter: 0,
+                    },
+                    series: {
+                        name: 'Series',
+                        counter: 0,
                     }
+                    },
+                data: {
+                    movie: {
+                        url: 'https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&lang=en&byTags=genre:action&byProgramType=movie',
+                        // &fields=title,description,programType,tdc$imdbid
+                        dataArray: null
+                    },
+                    series: {
+                        url: 'https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas?form=json&lang=en&byTags=genre:action&byProgramType=series',
+                        dataArray: null
+                    }
+                }
                 }
             ]
         }
@@ -78,22 +69,25 @@ export default {
     },
     created() {
         axios
-        .get(this.genreArray[0].action.data.movie.url)
+        .get(this.genreArray[0].data.movie.url)
         .then((response) => {
-            this.genreArray[0].action.data.movie.dataArray = response.data.entries;
-            this.genreArray[0].action.info.movie.counter = response.data.entries.length;
+            this.genreArray[0].data.movie.dataArray = response.data.entries;
+            this.genreArray[0].info.movie.counter = response.data.entries.length;
             this.loaded = true;
 
             console.log(response.data.entries)
         });
         axios
-        .get(this.genreArray[0].action.data.series.url)
+        .get(this.genreArray[0].data.series.url)
         .then((response) => {
-            this.genreArray[0].action.data.series.dataArray = response.data.entries;
-            this.genreArray[0].action.info.series.counter = response.data.entries.length;
+            this.genreArray[0].data.series.dataArray = response.data.entries;
+            this.genreArray[0].info.series.counter = response.data.entries.length;
 
             console.log(response.data.entries)
         });
+        axios
+        .get("https://feed.entertainment.tv.theplatform.eu/f/jGxigC/bb-all-pas/229503528355?form=json")
+        .then((response) => console.log("Yay!",response.data))
 
         // Some of the key values
         // plprogram$thumbnails

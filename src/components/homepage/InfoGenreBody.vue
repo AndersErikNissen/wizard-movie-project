@@ -1,11 +1,11 @@
 <template>
-      <section>
-          <section>
+      <section id="outer">
+          <section id="shellMovie">
             <info-header :genreObj="genreObj.movie"></info-header>
 
             <info-box v-for="(program, index) in programArray.movie.dataArray" :key="index" :program="program"></info-box>
           </section>
-          <section>
+          <section id="shellSeries">
             <info-header :genreObj="genreObj.series"></info-header>
 
             <info-box v-for="(program, index) in programArray.series.dataArray" :key="index" :program="program"></info-box>
@@ -57,6 +57,10 @@ export default {
 </script>
 
 <style scoped>
-
+#shellMovie,
+#shellSeries {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 </style>

@@ -8,9 +8,6 @@
                 <router-link to="/program-overview">Overview</router-link>
             </li>
             <li>
-                <router-link to="/program-template">Template - Placeholder - Dont need a NAV</router-link>
-            </li>
-            <li>
                 <router-link to="/user-favorites">Your Favorites</router-link>
             </li>
         </ul>

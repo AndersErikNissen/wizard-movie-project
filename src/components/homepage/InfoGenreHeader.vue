@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <section>
         <section>
             <h2> {{ genreObj.name }} </h2>
             <h3> {{ genreObj.counter }} found </h3>
@@ -8,7 +8,7 @@
         <div>
             <!-- <router-link :to="genreObj.link">See more</router-link> -->
         </div>
-    </article>    
+    </section>    
 </template>
 
 <script>

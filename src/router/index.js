@@ -5,22 +5,24 @@ const routes = [
   {
     path: '/',
     name: 'Homepage',
-    component: Homepage
+    component: Homepage,
   },
   {
     path: '/program-overview',
     name: 'ProgramOverview',
-    component: () => import('../views/ProgramOverview.vue')
+    component: () => import('../views/ProgramOverview.vue'),
   },
   {
-    path: '/program-template',
+    path: '/program/:programId',
     name: 'ProgramTemplate',
-    component: () => import('../views/ProgramTemplate.vue')
+    component: () => import('../views/ProgramTemplate.vue'),
+    // In order to easily use the $route.params, each routes can have props: true. That way the .params is now a prop for the component.
+    props: true
   },
   {
     path: '/user-favorites',
     name: 'UserFavorites',
-    component: () => import('../views/UserFavorites.vue')
+    component: () => import('../views/UserFavorites.vue'),
   }
 ]
 
