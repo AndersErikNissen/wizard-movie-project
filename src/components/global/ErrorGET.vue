@@ -2,6 +2,7 @@
     <main>
         <h1>404 Error</h1>
         <h2> {{ description }} </h2>
+        <p>Please try again.</p>
         <router-link to="/">Homepage</router-link>
     </main>
 </template>

@@ -24,6 +24,7 @@ const routes = [
     name: 'UserFavorites',
     component: () => import('../views/UserFavorites.vue'),
   },
+  // Some simple error handling for the routes.
   {
     path: '/notfound',
     name: 'NotFound',

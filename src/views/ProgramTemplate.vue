@@ -31,7 +31,7 @@ export default {
     computed: {
         updateError: function () {
             // Just a tiny thing to change in the error message, should the user not know what is meant with an object.
-            return this.idData.description.replace("object", "program")
+            return this.idData.description.replace("object", "a program")
         }
     },
     data() {
