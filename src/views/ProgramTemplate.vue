@@ -38,7 +38,7 @@
         </section>
 
         <!-- V-if is used insted of v-else, because it should be loaded before the GET-request is done and that there is an error -->
-        <error-get v-if="!foundData && idData" :description="updateError"></error-get>
+        <error-get v-if="!foundData && idData" :errorObject="updateError"></error-get>
     </main>    
 </template>
 
@@ -59,13 +59,18 @@ export default {
     computed: {
         updateError: function () {
             // Just a tiny thing to change in the error message, should the user not know what is meant with an object.
-            return this.idData.description.replace("object", "a program")
+            let obj = {
+                title: "Homepage",
+                description: this.idData.description.replace("object", "a program"),
+                returnLink: "/"
+            }
+            return obj;
         },
         genreArray: function () {
             // These [3]Array's are for sorting through the content and pick out what should be displayed.
             let newArray = [];
             this.idData.plprogram$tags.forEach(genre => {
-                // To make sure we only catch genres and nother other things editorial.
+                // To make sure we only catch genres and other other things, like editorial.
                 if (genre.plprogram$scheme == "genre") {
                     newArray.push(genre.plprogram$title)
                 }
@@ -110,7 +115,6 @@ export default {
         backdrop: function () {
             let backdrop = null;
             for(const key in this.idData.plprogram$thumbnails) {
-                // if(key == "orig-1080x1920") {
                 if(key == "orig-324x1280") {
                     let path = this.idData.plprogram$thumbnails[key];
                     // Using an object to be able to things like max-width
@@ -147,7 +151,7 @@ export default {
                 if (response.data.responseCode === 404) {
                     //Should the route have changed to something that can not be found after finding a program, then we need to reset foundData.
                     this.foundData = false;
-                    console.log(response.data)
+                    console.log("Error",response.data)
                 } else {
                     this.foundData = true;
                 }

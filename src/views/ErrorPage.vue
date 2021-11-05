@@ -1,5 +1,5 @@
 <template>
-    <error-get></error-get>
+    <error-get :errorObject="errorObj"></error-get>
 </template>
 
 <script>
@@ -8,6 +8,15 @@ export default {
     name: "ErrorPage",
     components: {
         "error-get": ErrorGET
+    },
+    data() {
+        return {
+            errorObj: {
+            title: "Homepage",
+            description: "Something wen wrong, please try again.",
+            returnLink: "/"
+        }
+        }
     }
 }
 </script>
