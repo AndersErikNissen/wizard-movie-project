@@ -1,6 +1,12 @@
 <template>
     <main>
-        <section v-if="foundData">
+        <section v-if="foundData" id="outer" >
+            <!-- <section id="backdrop">
+                <div :style="'background-image: url(' + backdrop.url + '); max-width: ' + backdrop.width + 'px; max-height:' + backdrop.height + 'px'">
+                </div>
+            </section> -->
+
+            <img id="imgTest" :src="backdrop.url" alt="">
             <img :src="posterImg" alt="">
             <h1>
                 {{ idData.title }}
@@ -21,23 +27,14 @@
                 <li>
                     {{ idData.plprogram$year }}
                 </li>
-                <li>
-                    <!-- Cover -->
-                    
-                </li>
-                <li>
-                    <!-- Backdrop -->
-                   
-                </li>
-                <li>
-                    {{ idData.plprogram$thumbnails }}
-                </li>
             </ul>
-            <div v-for="(image, index) in idData.plprogram$thumbnails" :key="index">
-                <img :src="image.plprogram$url" :alt="index">
-            </div>
 
-            
+            {{ idData.plprogram$tags }}
+            <!-- <div v-for="(image, index) in idData.plprogram$thumbnails" :key="index">
+                <img :src="image.plprogram$url" :alt="index">
+            </div> -->
+
+            {{ runtimeMin }} min
         </section>
 
         <!-- V-if is used insted of v-else, because it should be loaded before the GET-request is done and that there is an error -->
@@ -68,7 +65,10 @@ export default {
             // These [3]Array's are for sorting through the content and pick out what should be displayed.
             let newArray = [];
             this.idData.plprogram$tags.forEach(genre => {
-                newArray.push(genre.plprogram$title)
+                // To make sure we only catch genres and nother other things editorial.
+                if (genre.plprogram$scheme == "genre") {
+                    newArray.push(genre.plprogram$title)
+                }
             });
             return newArray;
         },
@@ -93,7 +93,7 @@ export default {
         posterImg: function () {
              let poster = null;
 
-            // This worked to find the poster img, but it seems a lot of the URL's are either missing or not working, so I choose a image-size all programs should have.
+            // This worked to find the poster img / Backdrop, but it seems a lot of the URL's are either missing or not working, so I choose a image-size all programs should have.
             // for(const key in this.idData.plprogram$thumbnails) {
             //     if(this.idData.plprogram$thumbnails[key].plprogram$assetTypes[0] == "Poster") {
             //         poster = this.idData.plprogram$thumbnails[key].plprogram$url;
@@ -107,6 +107,25 @@ export default {
             }
             return poster;
         },
+        backdrop: function () {
+            let backdrop = null;
+            for(const key in this.idData.plprogram$thumbnails) {
+                // if(key == "orig-1080x1920") {
+                if(key == "orig-324x1280") {
+                    let path = this.idData.plprogram$thumbnails[key];
+                    // Using an object to be able to things like max-width
+                    backdrop = {
+                        url: path.plprogram$url,
+                        width: path.plprogram$width,
+                        height: path.plprogram$height
+                    }
+                }
+            }
+            return backdrop;
+        },
+        runtimeMin: function () {
+            return this.idData.plprogram$runtime / 60;
+        }
     },
     data() {
         return {
@@ -149,5 +168,29 @@ export default {
 </script>
 
 <style scoped>
+#outer {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
 
+    text-align: center;
+}
+
+#imgTest {
+    mask-image: linear-gradient(rgba(0, 0, 0, 1.0), transparent);
+}
+/* #backdrop {
+    width: 100vw;
+    height: 40vh;
+}
+#backdrop div {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+
+    clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
+
+} */
 </style>
