@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav id="nav">
         <ul>
             <li>
                 <router-link to="/">Homepage</router-link>
@@ -12,7 +12,7 @@
             </li>
         </ul>
     </nav>
-  <router-view/>
+  <router-view class="routerview"/>
 </template>
 
 <script>
@@ -37,6 +37,9 @@ export default {
 
 #nav {
   padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 a {
@@ -46,5 +49,8 @@ a {
 
  a.router-link-exact-active {
   color: #42b983;
+}
+.routerview {
+  padding: 15vh 0 0 0;
 }
 </style>
