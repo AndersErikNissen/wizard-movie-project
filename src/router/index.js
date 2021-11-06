@@ -8,9 +8,9 @@ const routes = [
     component: Homepage,
   },
   {
-    path: '/program-overview',
-    name: 'ProgramOverview',
-    component: () => import('../views/ProgramOverview.vue'),
+    path: '/programs/:genre',
+    name: 'Programs',
+    component: () => import('../views/ProgramsTemplate.vue'),
   },
   {
     path: '/program/:programId',
