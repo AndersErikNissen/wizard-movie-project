@@ -1,5 +1,5 @@
 <template>
-  <nav-bar></nav-bar>
+  <the-nav></the-nav>
   <router-view class="routerview"/>
 </template>
 
@@ -8,7 +8,7 @@ import Nav from './components/global/TheNavigation.vue'
 export default {
   name: "App",
   components: {
-    "nav-bar": Nav,
+    "the-nav": Nav,
   },
   data() {
     return {

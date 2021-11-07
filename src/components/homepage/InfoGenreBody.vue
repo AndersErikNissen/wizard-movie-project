@@ -5,24 +5,33 @@
       <info-header title="Movies" :counter="genre.counter[0]"></info-header>
       <section id="outerInfoBox_movie">
         <info-box
+          class="infoBox"
           v-for="(program, index) in genre.programs.movie"
           :key="index"
           :program="program"
         ></info-box>
       </section>
-      <click-button title="Show More" @click="addRangeMovie()"></click-button>
+      <div class="clickDiv">
+        <click-button title="More Movies" @click="addRangeMovie()"></click-button>
+      </div>
     </section>
 
     <section id="shellSeries">
       <info-header title="Series" :counter="genre.counter[1]"></info-header>
       <section id="outerInfoBox_series">
         <info-box
+          class="infoBox"
           v-for="(program, index) in genre.programs.series"
           :key="index"
           :program="program"
         ></info-box>
       </section>
-      <click-button title="Show More" @click="addRangeSeries()"></click-button>
+      <div class="clickDiv">
+        <click-button
+          title="More Series"
+          @click="addRangeSeries()"
+        ></click-button>
+      </div>
     </section>
   </section>
 </template>
@@ -32,7 +41,7 @@
 import axios from "axios";
 import Header from "./InfoGenreHeader.vue";
 import InfoBox from "../global/ProgramInfobox.vue";
-import ClickButton from "../buttons/ClickButton.vue"
+import ClickButton from "../buttons/ClickButton.vue";
 // import axios from 'axios';
 export default {
   name: "InfoGenreBody",
@@ -45,7 +54,7 @@ export default {
   components: {
     "info-header": Header,
     "info-box": InfoBox,
-    "click-button": ClickButton
+    "click-button": ClickButton,
   },
   data() {
     return {
@@ -120,12 +129,12 @@ export default {
       this.loaded = true;
     },
     addRangeMovie() {
-        this.genre.range[0] += 2;
-        this.getMovies();
+      this.genre.range[0] += 2;
+      this.getMovies();
     },
     addRangeSeries() {
-        this.genre.range[1] += 2;
-        this.getSeries();
+      this.genre.range[1] += 2;
+      this.getSeries();
     },
   },
   created() {
@@ -142,5 +151,16 @@ export default {
 #outerInfoBox_series {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+.infoBox:nth-child(odd),
+.infoBox:nth-child(odd) {
+  justify-self: right;
+}
+
+.clickDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
 }
 </style>

@@ -54,5 +54,9 @@ a {
 }
 h4 {
     color: black;
+    width: 408px;
+    margin: .5rem 0;
+    padding: 0;
+    font-size: 2rem;
 }
 </style>
