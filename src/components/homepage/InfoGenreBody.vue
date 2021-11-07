@@ -1,6 +1,8 @@
 <template>
   <section id="outer">
-    <h2>{{ newGenreTitle }}</h2>
+    <div id="genreTitle">
+      <h2>{{ newGenreTitle }}</h2>
+    </div>
     <section id="shellMovie">
       <info-header title="Movies" :counter="genre.counter[0]"></info-header>
       <section id="outerInfoBox_movie">
@@ -12,7 +14,10 @@
         ></info-box>
       </section>
       <div class="clickDiv">
-        <click-button title="More Movies" @click="addRangeMovie()"></click-button>
+        <click-button
+          title="More Movies"
+          @click="addRangeMovie()"
+        ></click-button>
       </div>
     </section>
 
@@ -162,5 +167,14 @@ export default {
   display: flex;
   justify-content: center;
   margin: 1rem 0;
+}
+#genreTitle {
+  display: flex;
+  justify-content: center;
+}
+#genreTitle h2{
+  font-size: 3rem;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 </style>
