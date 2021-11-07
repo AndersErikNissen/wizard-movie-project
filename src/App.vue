@@ -54,7 +54,8 @@ a {
 }
 
  a.router-link-exact-active {
-  color: #42b983;
+  color: #d4b500;
+  text-decoration-line: underline;
 }
 .routerview {
   padding: 15vh 0 0 0;
