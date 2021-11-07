@@ -10,6 +10,7 @@
           :program="program"
         ></info-box>
       </section>
+      <click-button @click="addRangeMovie()">More Movies</click-button>
     </section>
 
     <section id="shellSeries">
@@ -21,9 +22,8 @@
           :program="program"
         ></info-box>
       </section>
+      <click-button @click="addRangeSeries()">More Series</click-button>
     </section>
-
-    <!-- BUTTON MISSING -->
   </section>
 </template>
 
@@ -32,6 +32,7 @@
 import axios from "axios";
 import Header from "./InfoGenreHeader.vue";
 import InfoBox from "../global/ProgramInfobox.vue";
+import ClickButton from "../buttons/ClickButton.vue"
 // import axios from 'axios';
 export default {
   name: "InfoGenreBody",
@@ -44,6 +45,7 @@ export default {
   components: {
     "info-header": Header,
     "info-box": InfoBox,
+    "click-button": ClickButton
   },
   data() {
     return {
@@ -116,6 +118,14 @@ export default {
           this.genre.counter[1] = response.data.entries.length;
         });
       this.loaded = true;
+    },
+    addRangeMovie() {
+        this.genre.range[0] += 2;
+        this.getMovies();
+    },
+    addRangeSeries() {
+        this.genre.range[1] += 2;
+        this.getSeries();
     },
   },
   created() {

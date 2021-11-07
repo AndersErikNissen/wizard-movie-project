@@ -5,7 +5,7 @@
                 <router-link to="/">Homepage</router-link>
             </li>
             <li>
-                <router-link to="/program-overview">Overview</router-link>
+                <router-link to="/programs/action">Overview</router-link>
             </li>
             <li>
                 <router-link to="/user-favorites">Your Favorites</router-link>

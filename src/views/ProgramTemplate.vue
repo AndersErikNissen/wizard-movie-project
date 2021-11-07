@@ -1,36 +1,45 @@
 <template>
   <main id="main">
     <section v-if="foundData" id="outer">
-      <!-- <div
-        id="imgTest"
-        :style="'background-image: url(' + backdrop.url + ');'"
-      ></div> -->
-
       <section id="programPoster_container">
         <img id="programPoster" :src="posterImg" alt="Program Poster" />
         <section id="programShortInfo_container">
-          <h1>
-            {{ idData.title }}
-          </h1>
-          <section id="programShortInfo">
-            <h4><span>Year: </span> {{ idData.plprogram$year }}</h4>
-            <h4><span>Director: </span>{{ directorArray[0] }}</h4>
-            <h4><span>Runtime: </span> {{ runtimeMin }}min</h4>
+          <div>
+            <h1>
+              {{ idData.title }}
+            </h1>
+            <section id="programShortInfo">
+              <h4><span>Director: </span>{{ directorArray[0] }}</h4>
+              <h4><span>Year: </span> {{ idData.plprogram$year }}</h4>
+              <h4><span>Runtime: </span> {{ runtimeMin }}min</h4>
+            </section>
+          </div>
+          <section>
+            <h2>Short Description</h2>
+            <p v-if="idData.description !== ''">
+              {{ idData.description }}
+            </p>
+            <p v-else>
+                <i>Short description are missing!</i>
+            </p>
           </section>
-          <p>
-            {{ idData.description }}
-          </p>
         </section>
       </section>
+
+        <div
+        id="backdrop"
+        :style="'background-image: url(' + backdrop.url + ');'"
+         ></div>
+
       <section id="programLongInfo_container">
-          <section>
-              <h2>Long Description</h2>
-        <p>
-          {{ idData.plprogram$longDescription }}
-        </p>
-          </section>
         <section>
-          <h2>Genres</h2>
+          <h2>Long Description</h2>
+          <p>
+            {{ idData.plprogram$longDescription }}
+          </p>
+        </section>
+        <section>
+          <h2>Genre(s)</h2>
           <ul id="genreUL">
             <li v-for="genre in genreArray" :key="genre">
               <genre-tag :title="genre"></genre-tag>
@@ -200,11 +209,28 @@ export default {
 </script>
 
 <style scoped>
-/* Misc */
+/* Text */
+* {
+  font-weight: 300;
+}
+h1,
+h2,
+h3,
+h5,
+h6,
+span {
+  font-weight: 700;
+}
+h1 {
+  font-size: 3rem;
+  margin: 0;
+}
 p {
   max-width: 65ch;
   margin: 1rem 0;
 }
+
+/* Misc */
 ul {
   margin: 1rem 0;
   padding: 0;
@@ -237,6 +263,15 @@ ul {
   /* justify-content: space-evenly; */
   width: 100%;
 }
+#programShortInfo_container {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+#programShortInfo_container p {
+  margin: 0;
+}
 
 #genreUL,
 #actorUL {
@@ -251,19 +286,22 @@ ul {
   margin: 0 1rem 1rem 0;
 }
 
-#imgTest {
-  /* mask-image: linear-gradient(123deg, rgba(0,134,255,1) 0%, rgba(0,134,255,.1) 100%);
-     mask-mode: luminance; */
-  width: 100vw;
-  height: 30vh;
+#backdrop {
+  width: 100%;
+  /* Height is set to px, because we know the height of our image */
+  height: 324px;
   background-repeat: no-repeat;
   background-position: center;
+  margin: 1rem 0;
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-
-  font-size: 4rem;
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+    #programPoster_container {
+        flex-direction: column;
+    }
+    #programShortInfo_container {
+        padding: 0;
+    }
 }
 </style>

@@ -1,10 +1,7 @@
 <template>
-<section>
     <router-link tag="button" class="linkButton" :to="linkObject.returnLink">
         {{ linkObject.title }}
     </router-link>
-    <router-link id="test" to="/"></router-link>
-</section>
 </template>
 
 <script>
@@ -20,6 +17,7 @@ export default {
 
 <style scoped>
 .linkButton {
+    cursor: pointer;
     display: inline-block;
     min-width: 9ch;
     text-align: center;
