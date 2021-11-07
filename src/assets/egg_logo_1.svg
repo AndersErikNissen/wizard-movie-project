@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.1 249.89">
+    <defs>
+        <style>
+            .cls-1 {
+                fill: #ba3636;
+            }
+
+            .cls-2 {
+                fill: #ffd43c;
+                stroke-miterlimit: 10;
+            }
+
+            .cls-2,
+            .cls-3,
+            .cls-4 {
+                stroke: #000;
+            }
+
+            .cls-2,
+            .cls-4 {
+                stroke-width: 3px;
+            }
+
+            .cls-3 {
+                fill: none;
+                stroke-width: 4px;
+                transform: translateY(5px);
+            }
+
+            .cls-3,
+            .cls-4 {
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .cls-4 {
+                fill: #fff;
+            }
+
+            #egg {
+                animation: wobble 8s linear infinite;
+                transform-origin: 96.05px 168.75px;
+            }
+
+            @keyframes wobble {
+                5% {transform: rotate(-6deg);}
+
+                10% {transform: rotate(6deg);}
+
+                15% {transform: rotate(-3deg);}
+
+                20% {transform: rotate(3deg);}
+
+                25% {transform: rotate(-3deg);}
+
+                30% {transform: rotate(0deg);}
+            }
+            #top {
+                animation: topOff 8s infinite linear;
+            }
+            @keyframes topOff {
+              30% {transform: translateY(0px);}
+              60% {transform: translateY(-30px);}
+              90% {transform: translateY(0px);}
+            }
+        </style>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_2-2" data-name="Layer 2">
+            <g id="rotate_anchor">
+                <ellipse class="cls-1" cx="96.05" cy="168.75" rx="86.57" ry="79.2" />
+            </g>
+            <g id="egg">
+                <g id="yolk">
+                    <ellipse class="cls-2" cx="97.83" cy="108.24" rx="75.09" ry="90" />
+                    <path class="cls-3" d="M48,85.88c.73-1,7.41-9.83,19.25-10,11.3-.18,18.11,7.66,19,8.7" />
+                    <path class="cls-3" d="M147.66,85.88c-.73-1-7.41-9.83-19.25-10-11.3-.18-18.11,7.66-19,8.7" />
+                </g>
+                <path id="top" class="cls-4"
+                    d="M181.69,101.54l-9.73,18L145.06,95.6l-15.3,23.94L111.83,89.11S88.62,119.34,86,119.54,59.62,94.68,59.62,94.68L36.93,108.26,14.34,89.62C30.27,45,59.81,1.5,96.05,1.5,135.52,1.5,167.05,53.1,181.69,101.54Z" />
+                <path id="bottom" class="cls-4"
+                    d="M181.69,101.54l-9.73,18L145.06,95.6l-15.3,23.94L111.83,89.11S88.62,119.34,86,119.54,59.62,94.68,59.62,94.68L36.93,108.26,14.34,89.62v0C6.1,112.67,1.5,136,1.5,153.84a94.55,94.55,0,0,0,189.1,0c0-14.73-3.15-33.28-8.91-52.32" />
+            </g>
+        </g>
+    </g>
+</svg>

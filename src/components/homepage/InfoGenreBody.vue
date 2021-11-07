@@ -10,7 +10,7 @@
           :program="program"
         ></info-box>
       </section>
-      <click-button @click="addRangeMovie()">More Movies</click-button>
+      <click-button title="Show More" @click="addRangeMovie()"></click-button>
     </section>
 
     <section id="shellSeries">
@@ -22,7 +22,7 @@
           :program="program"
         ></info-box>
       </section>
-      <click-button @click="addRangeSeries()">More Series</click-button>
+      <click-button title="Show More" @click="addRangeSeries()"></click-button>
     </section>
   </section>
 </template>

@@ -1,23 +1,15 @@
 <template>
-  <nav id="nav">
-        <ul>
-            <li>
-                <router-link to="/">Homepage</router-link>
-            </li>
-            <li>
-                <router-link to="/programs/action">Overview</router-link>
-            </li>
-            <li>
-                <router-link to="/user-favorites">Your Favorites</router-link>
-            </li>
-        </ul>
-    </nav>
+  <nav-bar></nav-bar>
   <router-view class="routerview"/>
 </template>
 
 <script>
+import Nav from './components/global/TheNavigation.vue'
 export default {
   name: "App",
+  components: {
+    "nav-bar": Nav,
+  },
   data() {
     return {
 
