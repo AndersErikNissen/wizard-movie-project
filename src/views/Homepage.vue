@@ -3,7 +3,6 @@
         <h1>Homepage</h1>
         <!-- Rember you can useKebab-case when using props in HTML -->
         <info-genre-body v-for="genre in genres" :key="genre" :typeOfGenre="genre"></info-genre-body>
-
     </section>
 </template>
 

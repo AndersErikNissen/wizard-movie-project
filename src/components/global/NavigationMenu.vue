@@ -1,14 +1,14 @@
 <template>
-     <nav id="nav">
+     <nav id="nav" v-if="show">
         <ul>
             <li>
-                <router-link to="/">Homepage</router-link>
+                <router-link @click="!thisShow" to="/">Homepage</router-link>
             </li>
             <li>
-                <router-link to="/programs/action">Overview</router-link>
+                <router-link @click="!thisShow" to="/programs/action">Overview</router-link>
             </li>
             <li>
-                <router-link to="/user-favorites">Your Favorites</router-link>
+                <router-link @click="!thisShow" to="/user-favorites">Your Favorites</router-link>
             </li>
         </ul>
     </nav>
@@ -16,29 +16,32 @@
 
 <script>
 export default {
-    name: "NavigationBar",
+    name: "NavigationMenu",
+    props: {
+        show: {
+            type: Boolean
+        }
+    },
     data() {
         return {
-            
+            thisShow: this.show
         }
     }
 }
 </script>
 
 <style scoped>
-#barOuter {
-    display: flex;
-    justify-content: space-between;
+#nav {
+    position: fixed;
     width: 100%;
-    height: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+
+    z-index: 1;
 }
-#svg {
-    width: 20px;
-    height: auto;
-}
-.bar {
-    width: 20px;
-    height: 4px;
-    margin: 2px 0;
+ul {
+    list-style-type: none;
 }
 </style>

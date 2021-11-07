@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.1 249.89">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280.89">
     <defs>
         <style>
             .cls-1 {
@@ -13,12 +13,12 @@
             .cls-2,
             .cls-3,
             .cls-4 {
-                stroke: #000;
+                stroke: rgba(8, 8, 8, 1);
             }
 
             .cls-2,
             .cls-4 {
-                stroke-width: 3px;
+                stroke-width: 10px;
             }
 
             .cls-3 {
@@ -55,13 +55,17 @@
 
                 30% {transform: rotate(0deg);}
             }
-            #top {
+            /* #top {
                 animation: topOff 8s infinite linear;
             }
             @keyframes topOff {
               30% {transform: translateY(0px);}
               60% {transform: translateY(-30px);}
               90% {transform: translateY(0px);}
+            } */
+
+            #Layer_2 {
+                transform: translateY(20px) translateX(3px);
             }
         </style>
     </defs>
@@ -73,8 +77,6 @@
             <g id="egg">
                 <g id="yolk">
                     <ellipse class="cls-2" cx="97.83" cy="108.24" rx="75.09" ry="90" />
-                    <path class="cls-3" d="M48,85.88c.73-1,7.41-9.83,19.25-10,11.3-.18,18.11,7.66,19,8.7" />
-                    <path class="cls-3" d="M147.66,85.88c-.73-1-7.41-9.83-19.25-10-11.3-.18-18.11,7.66-19,8.7" />
                 </g>
                 <path id="top" class="cls-4"
                     d="M181.69,101.54l-9.73,18L145.06,95.6l-15.3,23.94L111.83,89.11S88.62,119.34,86,119.54,59.62,94.68,59.62,94.68L36.93,108.26,14.34,89.62C30.27,45,59.81,1.5,96.05,1.5,135.52,1.5,167.05,53.1,181.69,101.54Z" />

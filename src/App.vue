@@ -35,6 +35,9 @@ export default {
   /* color: #2c3e50; */
   color: rgb(8, 8, 8);
 }
+* {
+  box-sizing: border-box;
+}
 
 #nav {
   padding: 30px;
