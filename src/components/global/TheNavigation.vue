@@ -80,6 +80,9 @@ button:active {
   transform: scale(0.96);
 }
 #logoMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -112,6 +115,8 @@ ul {
 }
 .navLi {
   font-size: 2rem;
+  margin: 2rem 0;
+  text-align: center;
 }
 #menuDiv,
 #svgDiv {
