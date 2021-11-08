@@ -29,7 +29,7 @@ export default {
     border-radius: 100px;
     padding: .8rem 1.1rem;
     color: black;
-    background-color: white;
+    background-color: transparent;
     margin-right: 1rem;
 }
 .genreTag {

@@ -1,5 +1,5 @@
 <template>
-  <the-nav></the-nav>
+  <the-nav :genres="genres"></the-nav>
   <router-view class="routerview"/>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   },
   data() {
     return {
-
+      genres: ["Action", "Comedy", "Thriller", "War", "Romance", "Drama", "Crime", "Documentary", "Horror"],
     }
   }
 }
@@ -50,12 +50,16 @@ export default {
 
 a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #000000;
 }
 
- a.router-link-exact-active {
-  color: #d4b500;
+ #mainNav a.router-link-exact-active {
+  color: #2eaece;
   text-decoration-line: underline;
+}
+#genreNav a.router-link-exact-active {
+  background-color: white;
+  color: black;
 }
 .routerview {
   padding: 15vh 0 0 0;

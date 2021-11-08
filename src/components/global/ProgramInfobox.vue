@@ -7,7 +7,7 @@
                 <img :src="program.plprogram$thumbnails['orig-594x408'].plprogram$url" :alt="'Image from the program' + program.title + '!'">
             </div>
             <div v-else class="div_Img">
-                <img src="../../assets/noImg1.png" alt="No Image was found, sorry!">
+                <img src="../../assets/noImg1_large.png" alt="No Image was found, sorry!">
             </div>
 <!-- 'orig-365x251' -->
             <div>

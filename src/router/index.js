@@ -8,9 +8,9 @@ const routes = [
     component: Homepage,
   },
   {
-    path: '/programs/:genre',
-    name: 'Programs',
-    component: () => import('../views/ProgramsTemplate.vue'),
+    path: '/user-wishlist',
+    name: 'UserWishlist',
+    component: () => import('../views/UserWishlist.vue'),
   },
   {
     path: '/program/:programId',
@@ -20,9 +20,10 @@ const routes = [
     props: true
   },
   {
-    path: '/user-favorites',
-    name: 'UserFavorites',
-    component: () => import('../views/UserFavorites.vue'),
+    path: '/programs/:genreId',
+    name: 'ProgramsTemplate',
+    component: () => import('../views/ProgramsTemplate.vue'),
+    props: true,
   },
   // Some simple error handling for the routes.
   {

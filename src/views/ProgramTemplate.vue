@@ -41,7 +41,7 @@
           </p>
         </section>
         <section>
-          <h2>Genre(s)</h2>
+          <h2>Genre(s):</h2>
           <ul id="genreUL">
             <li v-for="genre in genreArray" :key="genre">
               <genre-tag :title="genre"></genre-tag>
@@ -49,7 +49,7 @@
           </ul>
         </section>
         <section>
-          <h2>Actors</h2>
+          <h2>Actors:</h2>
           <ul id="actorUL">
             <li v-for="actor in actorArray" :key="actor">
               {{ actor }}

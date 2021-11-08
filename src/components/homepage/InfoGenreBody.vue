@@ -44,7 +44,7 @@
 <script>
 // Import
 import axios from "axios";
-import Header from "./InfoGenreHeader.vue";
+import Header from "../global/InfoGenreHeader.vue";
 import InfoBox from "../global/ProgramInfobox.vue";
 import ClickButton from "../buttons/ClickButton.vue";
 // import axios from 'axios';

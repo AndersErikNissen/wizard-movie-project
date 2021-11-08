@@ -2,7 +2,7 @@
   <section id="outer">
     <section id="logoMenu">
       <router-link to="/" id="svgRouter">
-        <div id="svgDiv">
+        <div id="svgDiv" @click="show = false">
           <object id="svg" :data="objectSVG" type="image/svg+xml"></object>
           <h5>EGGCELENT</h5>
         </div>
@@ -20,21 +20,25 @@
       </div>
 
       <nav id="nav" v-if="show">
-        <ul>
+        <ul id="mainNav">
           <li class="navLi">
-            <router-link @click="show = !show" to="/">Homepage</router-link>
+            <router-link @click="show = false" to="/">Homepage</router-link>
           </li>
           <li class="navLi">
-            <router-link @click="show = !show" to="/programs/action"
-              >Overview</router-link
-            >
-          </li>
-          <li class="navLi">
-            <router-link @click="show = !show" to="/user-favorites"
-              >Your Favorites</router-link
+            <router-link @click="show = false" to="/user-wishlist"
+              >Your Wishlist</router-link
             >
           </li>
         </ul>
+
+        <section id="genreNav">
+          <h2>Genres:</h2>
+          <ul class="genreUL">
+            <li @click="show = false" v-for="genre in genres" :key="genre">
+              <genre-tag :title="genre"></genre-tag>
+            </li>
+          </ul>
+        </section>
       </nav>
     </section>
   </section>
@@ -42,9 +46,17 @@
 
 <script>
 import SVG from "../../assets/egg_logo_1.svg";
+import GenreTag from "../buttons/GenreTag.vue";
 export default {
   name: "TheNavigation",
-  components: {},
+  props: {
+    genres: {
+      type: Array,
+    },
+  },
+  components: {
+    "genre-tag": GenreTag,
+  },
   data() {
     return {
       objectSVG: SVG,
@@ -104,8 +116,9 @@ button:active {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
 
   z-index: 1;
   background-color: rgb(252, 252, 155);
@@ -143,5 +156,17 @@ a#svgRouter.router-link-exact-active {
 }
 .bar:nth-child(2) {
   margin: 3px 0;
+}
+.genreUL {
+  display: flex;
+  flex-direction: row;
+  max-width: 1280px;
+  flex-wrap: wrap;
+
+  margin: 0;
+  padding: 0;
+}
+.genreUL li {
+  margin: 0.4rem 0;
 }
 </style>
