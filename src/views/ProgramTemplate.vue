@@ -20,22 +20,24 @@
               {{ idData.description }}
             </p>
             <p v-else>
-                <i>Short description are missing!</i>
+              <i>Short description are missing!</i>
             </p>
           </section>
         </section>
       </section>
 
-        <div
+      <div
         id="backdrop"
         :style="'background-image: url(' + backdrop.url + ');'"
-         ></div>
-
+      ></div>
       <section id="programLongInfo_container">
         <section>
           <h2>Long Description</h2>
-          <p>
+          <p v-if="idData.plprogram$longDescription !== '' && idData.plprogram$longDescription !== null">
             {{ idData.plprogram$longDescription }}
+          </p>
+          <p v-else>
+            <i>Long description are missing!</i>
           </p>
         </section>
         <section>
@@ -297,11 +299,11 @@ ul {
 
 /* Media Queries */
 @media screen and (max-width: 1024px) {
-    #programPoster_container {
-        flex-direction: column;
-    }
-    #programShortInfo_container {
-        padding: 0;
-    }
+  #programPoster_container {
+    flex-direction: column;
+  }
+  #programShortInfo_container {
+    padding: 0;
+  }
 }
 </style>

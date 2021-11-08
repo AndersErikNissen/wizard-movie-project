@@ -152,6 +152,10 @@ export default {
 </script>
 
 <style scoped>
+#outer {
+  margin-bottom: 12rem;
+}
+
 #outerInfoBox_movie,
 #outerInfoBox_series {
   display: grid;
