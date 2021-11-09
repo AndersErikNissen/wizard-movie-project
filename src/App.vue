@@ -14,6 +14,11 @@ export default {
     return {
       genres: ["Action", "Comedy", "Thriller", "War", "Romance", "Drama", "Crime", "Documentary", "Horror"],
     }
+  },
+  mounted() {
+    if(localStorage.getItem("wishlist")) {
+      console.log(localStorage.getItem("wishlist"))
+    }
   }
 }
 </script>

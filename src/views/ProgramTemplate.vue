@@ -12,6 +12,7 @@
               <h4><span>Director: </span>{{ directorArray[0] }}</h4>
               <h4><span>Year: </span> {{ idData.plprogram$year }}</h4>
               <h4><span>Runtime: </span> {{ runtimeMin }}min</h4>
+              <wish-btn :wishId="programId"></wish-btn>
             </section>
           </div>
           <section>
@@ -33,7 +34,12 @@
       <section id="programLongInfo_container">
         <section>
           <h2>Long Description</h2>
-          <p v-if="idData.plprogram$longDescription !== '' && idData.plprogram$longDescription !== null">
+          <p
+            v-if="
+              idData.plprogram$longDescription !== '' &&
+              idData.plprogram$longDescription !== null
+            "
+          >
             {{ idData.plprogram$longDescription }}
           </p>
           <p v-else>
@@ -57,13 +63,9 @@
           </ul>
         </section>
       </section>
-
-      <!-- <div v-for="(image, index) in idData.plprogram$thumbnails" :key="index">
-                <img :src="image.plprogram$url" :alt="index">
-            </div> -->
     </section>
 
-    <!-- V-if is used insted of v-else, because it should be loaded before the GET-request is done and that there is an error -->
+    <!-- V-if is used insted of v-else, because it shouldn't be loaded before the GET-request is done and that there is an error -->
     <error-get
       id="errorArea"
       v-if="!foundData && idData"
@@ -76,7 +78,7 @@
 import axios from "axios";
 import ErrorGET from "../components/global/ErrorGET.vue";
 import GenreTag from "../components/buttons/GenreTag.vue";
-
+import WishBtn from "../components/buttons/WishlistButton.vue";
 export default {
   name: "Template",
   props: {
@@ -88,6 +90,7 @@ export default {
   components: {
     "error-get": ErrorGET,
     "genre-tag": GenreTag,
+    "wish-btn": WishBtn,
   },
   computed: {
     updateError: function () {
@@ -250,8 +253,9 @@ ul {
   background-size: contain;
 
   /* text-align: center; */
+  justify-self: center;
 
-  grid-area: 1 / 3 / 2 / 11;
+  grid-area: 1 / 2 / 2 / 12;
   display: flex;
   /* justify-content: center; */
   align-items: center;
@@ -273,6 +277,10 @@ ul {
 }
 #programShortInfo_container p {
   margin: 0;
+}
+#programPoster {
+  width: 408px;
+  height: 594px;
 }
 
 #genreUL,
@@ -299,6 +307,13 @@ ul {
 
 /* Media Queries */
 @media screen and (max-width: 1024px) {
+  #main {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  #outer,
+  #errorArea {
+    grid-area: 1 / 2 / 2 / 8;
+  }
   #programPoster_container {
     flex-direction: column;
   }

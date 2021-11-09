@@ -32,4 +32,9 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  padding: 0 1rem;
+}
 </style>

@@ -1,8 +1,11 @@
 <template>
   <section id="outer">
-    <div id="genreTitle">
+    <section id="genreTitle">
+   
       <h2>{{ newGenreTitle }}</h2>
-    </div>
+      <router-link :to="'/programs/' + typeOfGenre">See all</router-link>
+
+    </section>
     <section id="shellMovie">
       <info-header title="Movies" :counter="genre.counter[0]"></info-header>
       <section id="outerInfoBox_movie">
@@ -43,10 +46,10 @@
 
 <script>
 // Import
-import axios from "axios";
-import Header from "../global/InfoGenreHeader.vue";
-import InfoBox from "../global/ProgramInfobox.vue";
-import ClickButton from "../buttons/ClickButton.vue";
+import axios from "axios"
+import Header from "../global/InfoGenreHeader.vue"
+import InfoBox from "../global/ProgramInfobox.vue"
+import ClickButton from "../buttons/ClickButton.vue"
 // import axios from 'axios';
 export default {
   name: "InfoGenreBody",
@@ -175,10 +178,14 @@ export default {
 #genreTitle {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 #genreTitle h2{
   font-size: 3rem;
   margin: 0;
   margin-bottom: 1rem;
+}
+#genreTitle a {
+  padding: 0 0 0 2rem;
 }
 </style>
