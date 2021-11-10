@@ -7,7 +7,7 @@
                 <img :src="program.plprogram$thumbnails['orig-365x251'].plprogram$url" :alt="'Image from the program' + program.title + '!'">
             </div>
             <div v-else class="div_Img">
-                <img src="../../assets/noImg1_large.png" alt="No Image was found, sorry!">
+                <img src="../../assets/noImg_v3.png" alt="No Image was found, sorry!">
             </div>
             <!-- Image sizes to use: -->
             <!-- 'orig-365x251' -->
@@ -62,6 +62,6 @@ h4 {
     font-size: 1.2rem;
 }
 .outer {
-    margin: 0 1rem 0 0;
+    margin: 0 2rem 0 0;
 }
 </style>

@@ -82,14 +82,11 @@ export default {
 <style scoped>
 .movieGrid,
 .seriesGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
 }
-.infoBox:nth-child(odd),
-.infoBox:nth-child(odd) {
-  justify-self: right;
-}
+
 .infoBox {
-    margin: 3rem 0;
+    margin: 2rem;
 }
 </style>

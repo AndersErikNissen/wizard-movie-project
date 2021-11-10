@@ -38,4 +38,12 @@ p {
   width: 100%;
   min-height: 500px;
 }
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    margin: 1rem;
+  }
+}
 </style>

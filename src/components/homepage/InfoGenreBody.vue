@@ -68,7 +68,7 @@ export default {
       genre: {
         counter: [], // Used here
         seeAll: null, // Used to Overview
-        range: [6, 6], // Used here
+        range: [10, 10], // Used here
         programs: {
           movie: null,
           series: null,
@@ -135,11 +135,11 @@ export default {
       this.loaded = true;
     },
     addRangeMovie() {
-      this.genre.range[0] += 6;
+      this.genre.range[0] += 10;
       this.getMovies();
     },
     addRangeSeries() {
-      this.genre.range[1] += 6;
+      this.genre.range[1] += 10;
       this.getSeries();
     },
   },
@@ -172,9 +172,11 @@ export default {
 ::-webkit-scrollbar {
   height: 10px;
   background-color: rgb(218, 218, 218);
+  border-radius: 500px;
 }
 ::-webkit-scrollbar-thumb {
   background-color: turquoise;
+  border-radius: 500px;
 }
 ::-webkit-scrollbar-thumb:active {
   background-color: rgb(53, 179, 166);
