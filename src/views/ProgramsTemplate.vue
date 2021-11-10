@@ -1,10 +1,9 @@
 <template>
   <main>
-    <section v-if="checkGenreId == 0" class="introToGenre">
+    <section v-if="checkGenreId" class="introToGenre">
       <h1>You have choosen the genre {{ genreTitle }}!</h1>
-      {{checkGenreId}}
     </section>
-    <display-all v-if="checkGenreId == 0" :currentGenre="genreId"></display-all>
+    <display-all v-if="checkGenreId" :currentGenre="genreId"></display-all>
     <!-- Error handling -->
     <error-get v-if="checkGenreId.status == true" :errorObject="checkGenreId.error"></error-get>
   </main>
@@ -49,7 +48,7 @@ export default {
         };
         return obj;
       } else {
-        return check;
+        return this.genreId;
       }
     }
   },

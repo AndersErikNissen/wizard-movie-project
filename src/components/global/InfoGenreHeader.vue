@@ -36,9 +36,6 @@ h2 {
 section {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 span {
     font-weight: 400;

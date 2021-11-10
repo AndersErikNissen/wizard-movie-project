@@ -1,10 +1,8 @@
 <template>
   <section id="outer">
     <section id="genreTitle">
-   
       <h2>{{ newGenreTitle }}</h2>
       <router-link :to="'/programs/' + typeOfGenre">See all</router-link>
-
     </section>
     <section id="shellMovie">
       <info-header title="Movies" :counter="genre.counter[0]"></info-header>
@@ -46,10 +44,10 @@
 
 <script>
 // Import
-import axios from "axios"
-import Header from "../global/InfoGenreHeader.vue"
-import InfoBox from "../global/ProgramInfobox.vue"
-import ClickButton from "../buttons/ClickButton.vue"
+import axios from "axios";
+import Header from "../global/InfoGenreHeader.vue";
+import InfoBox from "../global/ProgramInfobox.vue";
+import ClickButton from "../buttons/ClickButton.vue";
 // import axios from 'axios';
 export default {
   name: "InfoGenreBody",
@@ -70,7 +68,7 @@ export default {
       genre: {
         counter: [], // Used here
         seeAll: null, // Used to Overview
-        range: [2, 2], // Used here
+        range: [6, 6], // Used here
         programs: {
           movie: null,
           series: null,
@@ -137,11 +135,11 @@ export default {
       this.loaded = true;
     },
     addRangeMovie() {
-      this.genre.range[0] += 2;
+      this.genre.range[0] += 6;
       this.getMovies();
     },
     addRangeSeries() {
-      this.genre.range[1] += 2;
+      this.genre.range[1] += 6;
       this.getSeries();
     },
   },
@@ -161,26 +159,39 @@ export default {
 
 #outerInfoBox_movie,
 #outerInfoBox_series {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Help from this article: https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
-.infoBox:nth-child(odd),
-.infoBox:nth-child(odd) {
-  justify-self: right;
+.infoBox {
+  flex: 0 0 auto;
+}
+
+/* Scrollbar design */
+::-webkit-scrollbar {
+  height: 10px;
+  background-color: rgb(218, 218, 218);
+}
+::-webkit-scrollbar-thumb {
+  background-color: turquoise;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: rgb(53, 179, 166);
 }
 
 .clickDiv {
   width: 100%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   margin: 1rem 0;
 }
 #genreTitle {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
-#genreTitle h2{
+#genreTitle h2 {
   font-size: 3rem;
   margin: 0;
   margin-bottom: 1rem;

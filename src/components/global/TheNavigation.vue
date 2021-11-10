@@ -1,5 +1,5 @@
 <template>
-  <section id="outer">
+  <section class="outer">
     <section id="logoMenu">
       <router-link to="/" id="svgRouter">
         <div id="svgDiv" @click="show = false">
@@ -68,6 +68,9 @@ export default {
 </script>
 
 <style scoped>
+.outer {
+  background-color: white;
+}
 h5 {
   margin: 0 3px;
   font-size: 1rem;
