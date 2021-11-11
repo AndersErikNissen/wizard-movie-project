@@ -130,6 +130,8 @@ button:active {
 }
 ul {
   list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 .navLi {
   font-size: 2rem;
@@ -176,9 +178,14 @@ a#svgRouter.router-link-exact-active {
   margin: 0.4rem 0;
 }
 
-.emptyDiv {
-  /* Just makes it easier to center logo */
+/* .emptyDiv {
+  Just makes it easier to center logo 
   width: 37px;
   height: 0px;
+} */
+@media screen and (max-width: 468px) {
+  #nav {
+    padding: .5rem;
+  }
 }
 </style>

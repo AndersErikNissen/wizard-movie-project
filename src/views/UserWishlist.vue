@@ -3,11 +3,26 @@
     <section class="intro">
       <h1>This is your very own Wishlist!</h1>
     </section>
-
-    <section v-for="wish in GETarray" :key="wish.id" class="infoContainer">
-      <info-box :program="wish"></info-box>
+    <section class="arraySection" v-if="GETarray.length > 0">
+      <section v-for="(wish, index) in GETarray" :key="wish.id" class="infoContainer">
+        <info-box :program="wish"></info-box>
+        <div>
+          <click-btn @click="removeWish(wish.id,index)" :title="'Unwish'"></click-btn>
+        </div>
+      </section>
+    </section>
+    <!-- If there are nothing on the wishlist show this section -->
+    <section class="errorBox" v-if="GETarray.length === 0">
       <div>
-        <click-btn @click="removeWish(wish.id)" :title="'Unwish'"></click-btn>
+        <p>You have no programs on your wishlist! Isn't that a shame?</p>
+        <p>
+          Get started finding programs worthy of your Wishlist on our Homepage!
+        </p>
+      </div>
+      <div>
+        <link-btn
+          :linkObject="{ title: 'Homepage', returnLink: '/' }"
+        ></link-btn>
       </div>
     </section>
   </main>
@@ -16,12 +31,14 @@
 <script>
 import ProgramInfoBox from "../components/global/ProgramInfobox.vue";
 import Btn from "../components/buttons/ClickButton.vue";
+import LinkBtn from "../components/buttons/LinkButton.vue";
 import axios from "axios";
 export default {
   name: "UserWishlist",
   components: {
     "info-box": ProgramInfoBox,
     "click-btn": Btn,
+    "link-btn": LinkBtn,
   },
   data() {
     return {
@@ -42,7 +59,6 @@ export default {
     }
 
     this.GETall();
-    console.log(this.GETarray);
   },
   computed: {},
   methods: {
@@ -56,13 +72,14 @@ export default {
           )
           .then((response) => {
             this.GETarray.push(response.data);
+            console.log("Created Wish:", response.data);
           })
           .catch(function (error) {
             console.log(error);
           });
       });
     },
-    removeWish(wishId) {
+    removeWish(wishId, indx) {
       // Used in Wish Button aswell
       let id = wishId.split("/")[6],
         idToRemove = this.wishlist.indexOf(id);
@@ -70,12 +87,12 @@ export default {
       if (idToRemove > -1) {
         // Checks if the id was found.
         this.wishlist.splice(idToRemove, 1);
+        // Change the loaded content
+        this.GETarray.splice(indx, 1);
       }
 
       const parsed = JSON.stringify(this.wishlist);
-
       localStorage.setItem("wishlist", parsed);
-      this.GETall();
     },
   },
 };
@@ -91,5 +108,24 @@ h1 {
 .infoContainer {
   display: flex;
   flex-direction: column;
+  margin: 0 0 2rem 0;
+}
+.errorBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.errorBox a {
+  margin: 2rem 0 0 0;
+}
+.intro {
+  display: flex;
+  justify-content: center;
+}
+.arraySection {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 </style>

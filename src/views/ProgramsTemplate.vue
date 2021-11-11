@@ -32,7 +32,7 @@ export default {
       return this.genreId.charAt(0).toUpperCase() + this.genreId.slice(1);
     },
     checkGenreId: function () {
-      // let check = this.genres.indexOf(this.genreId);
+      // let check = this.genres.indexOf(this.genreId); // .find()??
       
       // if(check === -1) {
       //   let obj = {

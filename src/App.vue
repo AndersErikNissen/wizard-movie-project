@@ -24,15 +24,8 @@ export default {
 </script>
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Thasadith:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 #app {
-  
-  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
-
-
-  /* font-family: 'Thasadith', sans-serif; */
   font-family: 'Inter', sans-serif;
 
   -webkit-font-smoothing: antialiased;
@@ -45,7 +38,7 @@ export default {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  background-image: url('./assets/bg_logo_large.svg');
+  background-image: url('./assets/lightning_bg_v1.svg');
   background-position: -10% -10%;
   background-size: 150%;
 
@@ -78,9 +71,11 @@ a {
   color: black;
 }
 .routerview {
-  padding: 15vh 0 0 0;
+  padding-top: 15vh;
+  min-height: 100vh;
 }
 
+/*  */
 ::-webkit-scrollbar {
   width: 12px;
   background-color: #000616;
