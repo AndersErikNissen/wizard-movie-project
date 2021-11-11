@@ -69,10 +69,10 @@ export default {
 </script>
 
 <style scoped>
-/* .outer #logoMenu {
-  background-color: #00081ec9;
+#logoMenu {
+  background-color: #00081e;
 
-} */
+}
 h2 {
   margin: 0 3px;
   font-size: 2rem;
@@ -107,7 +107,7 @@ button:active {
   padding: 1rem;
 }
 #svg {
-  width: 65px;
+  width: 60px;
   height: auto;
   pointer-events: none;
 }
