@@ -123,10 +123,6 @@ h2 {
   text-align: center;
   font-size: 2rem;
 }
-
-.infoBox {
-  margin: 1rem;
-}
 b {
   font-size: 1.1rem;
 }

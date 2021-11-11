@@ -29,7 +29,7 @@
 
       <div
         id="backdrop"
-        :style="'background-image: url(' + backdrop.url + ');'"
+        :style="'background-image: url(' + backdrop + ');'"
       ></div>
       <section id="programLongInfo_container">
         <section>
@@ -144,9 +144,13 @@ export default {
       for (const key in this.idData.plprogram$thumbnails) {
         if (key == "orig-594x408") {
           poster = this.idData.plprogram$thumbnails[key].plprogram$url;
+          return poster;
         }
       }
+      // If there was no match, use a noImg
+      poster = "assets/img/noImg_v3_large.png"
       return poster;
+    
     },
     backdrop: function () {
       let backdrop = null;
@@ -160,9 +164,10 @@ export default {
             width: path.plprogram$width,
             height: path.plprogram$height,
           };
+          return backdrop.url;
         }
       }
-      return backdrop;
+      return "assets/img/noImg_v3_wide.png";
     },
     runtimeMin: function () {
       // Turn seconds in to min to show on the front-end, for runtime.

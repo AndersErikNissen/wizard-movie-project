@@ -13,7 +13,7 @@ export default {
         return {
             errorObj: {
             title: "Homepage",
-            description: "Something wen wrong, please try again.",
+            description: "Something went wrong, please try again.",
             returnLink: "/"
         }
         }
