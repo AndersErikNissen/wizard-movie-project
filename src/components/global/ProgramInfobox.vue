@@ -55,7 +55,7 @@ a {
     text-decoration: none;
 }
 h4 {
-    color: black;
+    color: white;
     width: 251px;
     margin: .3rem 0;
     padding: 0;

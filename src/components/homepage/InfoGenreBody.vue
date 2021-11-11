@@ -22,7 +22,7 @@
       </div>
     </section>
 
-    <section id="shellSeries">
+    <section v-if="!noSeries" id="shellSeries">
       <info-header title="Series" :counter="genre.counter[1]"></info-header>
       <section id="outerInfoBox_series">
         <info-box
@@ -74,6 +74,7 @@ export default {
           series: null,
         }, // Used here and to ProgramTemplate
       },
+      noSeries: false,
     };
   },
   computed: {
@@ -111,6 +112,10 @@ export default {
         )
         .then((response) => {
           this.genre.programs.series = response.data.entries;
+
+          if(response.data.entries.length === 0) {
+            this.noSeries = true;
+          }
         });
     },
     getCount() {
@@ -163,6 +168,8 @@ export default {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
+
+  padding: 0 0 1rem 0;
 }
 .infoBox {
   flex: 0 0 auto;
@@ -170,16 +177,16 @@ export default {
 
 /* Scrollbar design */
 ::-webkit-scrollbar {
-  height: 10px;
-  background-color: rgb(218, 218, 218);
+  height: 8px;
+  background-color: #00144b49;
   border-radius: 500px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: turquoise;
+  background-color: #00ffce;
   border-radius: 500px;
 }
 ::-webkit-scrollbar-thumb:active {
-  background-color: rgb(53, 179, 166);
+  background-color: #00ffcca6;
 }
 
 .clickDiv {

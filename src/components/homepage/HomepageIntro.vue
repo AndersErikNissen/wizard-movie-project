@@ -23,8 +23,7 @@ export default {
 
 <style scoped>
 h1 {
-  font-size: 4rem;
-  text-align: center;
+  font-size: 3rem;
 }
 p {
   max-width: 65ch;
@@ -32,18 +31,29 @@ p {
 #homeIntro {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
-  width: 100%;
-  min-height: 500px;
+  width: 1fr;
+  margin: 10vw 5vw;
+
+}
+* {
+  box-sizing: border-box;
 }
 @media screen and (max-width: 1024px) {
   h1 {
     font-size: 3rem;
   }
   p {
-    margin: 1rem;
+    margin: 1rem 0;
+  }
+  #homeIntro {
+   margin: 8vw;
+  }
+}
+@media screen and (max-width: 468px) {
+  h1 {
+    font-size: 2.2rem;
   }
 }
 </style>

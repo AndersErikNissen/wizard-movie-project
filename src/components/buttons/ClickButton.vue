@@ -20,16 +20,19 @@ export default {
 button {
   cursor: pointer;
   display: inline-block;
-  min-width: 9ch;
+  min-width: 20ch;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid white;
+  border-radius: 500px;
   padding: 0.8rem 1.1rem;
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: transparent;
+  font-size: .8rem;
 }
 button:hover {
   background-color: black;
   color: white;
+  border-color: black;
 }
 button:active {
   transform: scale(0.96);

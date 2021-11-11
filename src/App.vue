@@ -28,6 +28,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Thasadith:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 #app {
+  
   /* font-family: Avenir, Helvetica, Arial, sans-serif; */
 
 
@@ -38,7 +39,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   /* color: #2c3e50; */
-  color: rgb(8, 8, 8);
+  color: rgb(255, 255, 255);
+}
+#app{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-image: url('./assets/bg_logo_large.svg');
+  background-position: -10% -10%;
+  background-size: 150%;
+
+  background-color: #00050f;
 }
 * {
   box-sizing: border-box;
@@ -59,7 +70,7 @@ a {
 }
 
  #mainNav a.router-link-exact-active {
-  color: #2eaece;
+  color: #e8009b;
   text-decoration-line: underline;
 }
 #genreNav a.router-link-exact-active {
@@ -68,5 +79,17 @@ a {
 }
 .routerview {
   padding: 15vh 0 0 0;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: #000c2c;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #00ffce;
+  border-radius: 500px;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: #00ffcca6;
 }
 </style>

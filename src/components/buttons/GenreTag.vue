@@ -37,8 +37,9 @@ export default {
     font-weight: normal;
 }
 .genreTag:hover {
-    background-color: black;
-    color: white;
+    background-color: white;
+    border: solid 1px white;
+    color: black;
 }
 .genreTag:active {
     transform: scale(.96);

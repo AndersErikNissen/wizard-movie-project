@@ -1,15 +1,16 @@
 <template>
   <section class="outer">
     <section id="logoMenu">
+        <!-- <div class="emptyDiv"></div> -->
       <router-link to="/" id="svgRouter">
         <div id="svgDiv" @click="show = false">
           <object id="svg" :data="objectSVG" type="image/svg+xml"></object>
-          <h5>EGGCELENT</h5>
+          <!-- <h2>Movie Wizard</h2> -->
         </div>
       </router-link>
       <div id="menuDiv">
         <button id="menu" @click="show = !show">
-          <h5>MENU</h5>
+          <!-- <h2>MENU</h2> -->
 
           <div id="barContainer">
             <div class="bar"></div>
@@ -45,7 +46,7 @@
 </template>
 
 <script>
-import SVG from "../../assets/egg_logo_1.svg";
+import SVG from "../../assets/wizard_logo_v1.svg";
 import GenreTag from "../buttons/GenreTag.vue";
 export default {
   name: "TheNavigation",
@@ -68,12 +69,13 @@ export default {
 </script>
 
 <style scoped>
-.outer {
-  background-color: white;
-}
-h5 {
+/* .outer #logoMenu {
+  background-color: #00081ec9;
+
+} */
+h2 {
   margin: 0 3px;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 700;
   color: black;
 }
@@ -85,11 +87,11 @@ button {
 a {
   text-decoration-line: none;
 }
-button:hover h5 {
-  color: rgb(44, 41, 0);
+button:hover h2 {
+  color: rgb(224, 224, 224);
 }
 button:hover div.bar {
-  background-color: rgb(44, 41, 0);
+  background-color: rgb(224, 224, 224);
 }
 button:active {
   transform: scale(0.96);
@@ -105,7 +107,7 @@ button:active {
   padding: 1rem;
 }
 #svg {
-  width: 35px;
+  width: 65px;
   height: auto;
   pointer-events: none;
 }
@@ -124,7 +126,7 @@ button:active {
   flex-direction: column;
 
   z-index: 1;
-  background-color: rgb(252, 252, 155);
+  background-color: #00ffce;
 }
 ul {
   list-style-type: none;
@@ -143,9 +145,10 @@ ul {
 #svgRouter {
   z-index: 2;
 }
-#svgDiv h5 {
+#svgDiv h2 {
   margin: 0 1rem;
   font-weight: 700;
+  color: white;
 }
 a#svgRouter.router-link-exact-active {
   text-decoration-line: none;
@@ -155,7 +158,7 @@ a#svgRouter.router-link-exact-active {
   width: 25px;
   height: 2px;
   margin: 0;
-  background-color: rgb(7, 7, 7);
+  background-color: rgb(255, 255, 255);
 }
 .bar:nth-child(2) {
   margin: 3px 0;
@@ -171,5 +174,11 @@ a#svgRouter.router-link-exact-active {
 }
 .genreUL li {
   margin: 0.4rem 0;
+}
+
+.emptyDiv {
+  /* Just makes it easier to center logo */
+  width: 37px;
+  height: 0px;
 }
 </style>
