@@ -32,7 +32,7 @@
           :program="program"
         ></info-box>
       </section>
-      <div class="clickDiv">
+      <div v-if="!under10series" class="clickDiv">
         <click-button
           title="More Series"
           @click="addRangeSeries()"
@@ -75,6 +75,7 @@ export default {
         }, // Used here and to ProgramTemplate
       },
       noSeries: false,
+      under10series: false,
     };
   },
   computed: {
@@ -113,9 +114,14 @@ export default {
         .then((response) => {
           this.genre.programs.series = response.data.entries;
 
+          // If there are no series to a genre, then dont show that content area, same with "show more btn".
           if(response.data.entries.length === 0) {
             this.noSeries = true;
           }
+          if(response.data.entries.length < 12) {
+            this.under10series = true;
+          }
+          
         });
     },
     getCount() {
@@ -208,5 +214,6 @@ export default {
 }
 #genreTitle a {
   padding: 0 0 0 2rem;
+  color: white;
 }
 </style>
