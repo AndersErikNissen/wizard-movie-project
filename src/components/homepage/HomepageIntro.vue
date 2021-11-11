@@ -1,6 +1,6 @@
 <template>
   <section id="homeIntro">
-    <h1>Welcome to EGGCELENT!</h1>
+    <h1>Welcome to Movie Wizard!</h1>
     <div>
       <p>
         Here you will be able to find all the latest movies. If you find
