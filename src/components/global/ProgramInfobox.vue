@@ -64,4 +64,10 @@ h4 {
 .outer {
     margin: 0 2rem 0 0;
 }
+
+@media screen and (max-width: 468px) {
+    h4, img {
+        width: 160px;
+    }
+}
 </style>
