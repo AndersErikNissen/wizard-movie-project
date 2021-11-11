@@ -186,7 +186,7 @@
         <g id="homepage">
             <g id="bubbles">
                 <circle id="oneB" class="cls-1 bubbleThree" cx="470.83" cy="205.73" r="13" />
-                <circle id="twoB" class="cls-1 bubbleOne" cx="539.54" cy="230.58" r="7" />
+                <circle id="twoB" class="cls-1 bubbleOne" cx="509.54" cy="230.58" r="7" />
                 <circle id="threeB" class="cls-1 bubbleTwo" cx="413.51" cy="255.17" r="9" />
                 <circle id="fourB" class="cls-2 bubbleThree" cx="552.02" cy="227.64" r="13" />
                 <circle id="fiveB" class="cls-2 bubbleOne" cx="407.39" cy="261.79" r="7" />
