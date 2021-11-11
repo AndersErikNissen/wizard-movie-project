@@ -4,7 +4,7 @@
       <h2>{{ newGenreTitle }}</h2>
       <router-link :to="'/programs/' + typeOfGenre">See all</router-link>
     </section>
-    <section id="shellMovie">
+    <section class="shellMovie">
       <info-header title="Movies" :counter="genre.counter[0]"></info-header>
       <section class="outerInfoBox_movie">
         <info-box
@@ -22,7 +22,7 @@
       </div>
     </section>
 
-    <section v-if="!noSeries" id="shellSeries">
+    <section v-if="!noSeries" class="shellSeries">
       <info-header title="Series" :counter="genre.counter[1]"></info-header>
       <section class="outerInfoBox_series">
         <info-box
@@ -177,6 +177,9 @@ export default {
   flex: 0 0 auto;
 }
 
+.shellMovie {
+  margin: 0 0 2rem 0;
+}
 /* Scrollbar design */
 ::-webkit-scrollbar {
   height: 8px;
@@ -200,16 +203,15 @@ export default {
 }
 #genreTitle {
   display: flex;
-  /* justify-content: center; */
+  justify-content: space-between;
   align-items: center;
 }
 #genreTitle h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 0;
   margin-bottom: 1rem;
 }
 #genreTitle a {
-  padding: 0 0 0 2rem;
   color: white;
 }
 </style>

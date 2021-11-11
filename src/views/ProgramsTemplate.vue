@@ -1,9 +1,6 @@
 <template>
   <main>
-    <section v-if="!checkGenreId.status" class="introToGenre">
-      <h1>You have choosen the genre {{ genreTitle }}!</h1>
-    </section>
-    <display-all v-if="!checkGenreId.status" :currentGenre="genreId"></display-all>
+    <display-all id="programsDisplayAll" v-if="!checkGenreId.status" :currentGenre="genreId"></display-all>
     <!-- Error handling -->
     <error-get v-if="checkGenreId.status === true" :errorObject="checkGenreId.error"></error-get>
   </main>
@@ -65,4 +62,16 @@ h1 {
   text-align: center;
   padding: 0 1rem;
 }
+#programsDisplayAll {
+  margin: 2rem 4rem;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    #programsDisplayAll {
+      margin: 1rem;
+      margin-bottom: 0;
+    }
+    }
+
 </style>

@@ -1,7 +1,7 @@
 <template>
     <section>
         <section>
-            <h2> {{ title }} <span>(<i>{{ counter }} found </i>)</span></h2>
+            <h2> {{ title }} ({{ counter }} total)</h2>
         </section>
     </section>    
 </template>
@@ -31,7 +31,8 @@ h2 {
     margin-bottom: .5rem;
 }
 h2 {
-    font-size: 2rem;
+    font-size: 1.3rem;
+    font-weight: 300;
 }
 section {
     width: 100%;

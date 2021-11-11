@@ -25,10 +25,10 @@ export default {
     display: inline-block;
     min-width: 5ch;
     text-align: center;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 100px;
     padding: .8rem 1.1rem;
-    color: black;
+    color: white;
     background-color: transparent;
     margin-right: 1rem;
 }
@@ -37,9 +37,9 @@ export default {
     font-weight: normal;
 }
 .genreTag:hover {
-    background-color: white;
-    border: solid 1px white;
-    color: black;
+    background-color: black;
+    border: solid 1px black;
+    color: white;
 }
 .genreTag:active {
     transform: scale(.96);

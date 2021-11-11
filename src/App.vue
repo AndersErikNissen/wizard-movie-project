@@ -70,7 +70,7 @@ a {
 }
 
  #mainNav a.router-link-exact-active {
-  color: #e8009b;
+  color: #00ffce;
   text-decoration-line: underline;
 }
 #genreNav a.router-link-exact-active {

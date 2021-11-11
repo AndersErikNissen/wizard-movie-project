@@ -77,7 +77,7 @@ h2 {
   margin: 0 3px;
   font-size: 2rem;
   font-weight: 700;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 button {
   background-color: transparent;
@@ -126,7 +126,7 @@ button:active {
   flex-direction: column;
 
   z-index: 1;
-  background-color: #00ffce;
+  background-color: #2a38b7;
 }
 ul {
   list-style-type: none;
