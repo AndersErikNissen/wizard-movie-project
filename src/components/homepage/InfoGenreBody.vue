@@ -178,11 +178,12 @@ export default {
 /* Scrollbar design */
 ::-webkit-scrollbar {
   height: 8px;
-  background-color: #00144b49;
+  background-color: #00144b13;
   border-radius: 500px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #00ffce;
+  /* background-color: #00ffce; */
+  background-color: #000e35e7;
   border-radius: 500px;
 }
 ::-webkit-scrollbar-thumb:active {

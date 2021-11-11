@@ -82,11 +82,12 @@ a {
 }
 
 ::-webkit-scrollbar {
-  width: 15px;
-  background-color: #000c2c;
+  width: 12px;
+  background-color: #000616;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #00ffce;
+  /* background-color: #00ffce; */
+  background-color: #001244;
   border-radius: 500px;
 }
 ::-webkit-scrollbar-thumb:active {
