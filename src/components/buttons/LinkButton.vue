@@ -17,25 +17,24 @@ export default {
 
 <style scoped>
 .linkButton {
-    cursor: pointer;
-    display: inline-block;
-    min-width: 9ch;
-    text-align: center;
-    border: 1px solid black;
-    padding: .8rem 1.1rem;
-    color: black;
-    background-color: white;
-}
-.linkButton {
-    text-decoration-line: none;
-    font-weight: normal;
+  cursor: pointer;
+  display: inline-block;
+  min-width: 20ch;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 500px;
+  padding: 0.8rem 1.1rem;
+  color: white;
+  background-color: transparent;
+  font-size: .8rem;
 }
 .linkButton:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
+  border-color: black;
 }
 .linkButton:active {
-    transform: scale(.96);
+  transform: scale(0.96);
 }
 
 </style>

@@ -1,11 +1,11 @@
 <template>
   <main>
-    <section v-if="checkGenreId" class="introToGenre">
+    <section v-if="!checkGenreId.status" class="introToGenre">
       <h1>You have choosen the genre {{ genreTitle }}!</h1>
     </section>
-    <display-all v-if="checkGenreId" :currentGenre="genreId"></display-all>
+    <display-all v-if="!checkGenreId.status" :currentGenre="genreId"></display-all>
     <!-- Error handling -->
-    <error-get v-if="checkGenreId.status == true" :errorObject="checkGenreId.error"></error-get>
+    <error-get v-if="checkGenreId.status === true" :errorObject="checkGenreId.error"></error-get>
   </main>
 </template>
 
@@ -35,21 +35,22 @@ export default {
       return this.genreId.charAt(0).toUpperCase() + this.genreId.slice(1);
     },
     checkGenreId: function () {
-      let check = this.genres.indexOf(this.genreId);
+      // let check = this.genres.indexOf(this.genreId);
       
-      if(check == -1) {
-        let obj = {
-          status: true,
-          error: {
-            title: "Homepage",
-            description: "This genre does not exist in our database.",
-            returnLink: "/"
-          }
-        };
-        return obj;
-      } else {
-        return this.genreId;
-      }
+      // if(check === -1) {
+      //   let obj = {
+      //     status: true,
+      //     error: {
+      //       title: "Homepage",
+      //       description: "This genre does not exist in our database.",
+      //       returnLink: "/"
+      //     }
+      //   };
+      //   return obj;
+      // } 
+
+      return true;
+  
     }
   },
   methods: {

@@ -1,12 +1,12 @@
 <template>
-  <section id="outer">
+  <section class="outer">
     <section id="genreTitle">
       <h2>{{ newGenreTitle }}</h2>
       <router-link :to="'/programs/' + typeOfGenre">See all</router-link>
     </section>
     <section id="shellMovie">
       <info-header title="Movies" :counter="genre.counter[0]"></info-header>
-      <section id="outerInfoBox_movie">
+      <section class="outerInfoBox_movie">
         <info-box
           class="infoBox"
           v-for="(program, index) in genre.programs.movie"
@@ -24,7 +24,7 @@
 
     <section v-if="!noSeries" id="shellSeries">
       <info-header title="Series" :counter="genre.counter[1]"></info-header>
-      <section id="outerInfoBox_series">
+      <section class="outerInfoBox_series">
         <info-box
           class="infoBox"
           v-for="(program, index) in genre.programs.series"
@@ -164,12 +164,8 @@ export default {
 </script>
 
 <style scoped>
-#outer {
-  margin-bottom: 12rem;
-}
-
-#outerInfoBox_movie,
-#outerInfoBox_series {
+.outerInfoBox_movie,
+.outerInfoBox_series {
   /* Help from this article: https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
   display: flex;
   flex-wrap: nowrap;

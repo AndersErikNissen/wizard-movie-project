@@ -49,11 +49,11 @@ main {
     flex-direction: column;
 }
   .genreBody {
-    margin: 0 3rem;
+    margin: 2rem 4rem;
   }
 @media screen and (max-width: 1024px) {
     .genreBody {
-      margin: 0 1rem;
+      margin: 1rem;
     }
     }
 </style>
