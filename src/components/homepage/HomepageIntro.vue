@@ -1,7 +1,7 @@
 <template>
   <section id="homeIntro">
     <section>
-      <h1>Welcome to Movie Wizard!</h1>
+      <h1>Welcome to <span>Movie Wizard</span>!</h1>
       <div class="introText">
         <p>
           Here you will be able to find all the latest movies. If you find
@@ -9,8 +9,11 @@
           Wishlist!
         </p>
         <p>
-          So what are you waiting for? Go explore, and find your next favourite
+         Go explore, and find your next favourite
           program!
+        </p>
+        <p>
+           So what are you waiting for? 
         </p>
       </div>
     </section>
@@ -59,6 +62,9 @@ p {
 }
 * {
   box-sizing: border-box;
+}
+span {
+  color:  #00ffce;;
 }
 @media screen and (max-width: 1024px) {
   h1 {

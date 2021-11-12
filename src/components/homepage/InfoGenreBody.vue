@@ -210,6 +210,7 @@ export default {
   font-size: 2rem;
   margin: 0;
   margin-bottom: 1rem;
+  color:  #00ffce;;
 }
 #genreTitle a {
   color: white;
