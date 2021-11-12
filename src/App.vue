@@ -1,7 +1,6 @@
 <template>
+  <the-nav id="navigation" :genres="genres"></the-nav>
   <router-view class="routerview"/>
-  <the-nav :genres="genres"></the-nav>
-  <!-- The Nav is placed below in order to always be on top of the other elements. Because of the stackingorder. -->
 </template>
 
 <script>
@@ -40,8 +39,8 @@ export default {
   height: 100%;
   background-repeat: no-repeat;
   background-image: url('./assets/lightning_bg_v1.svg');
-  background-position: -10% -10%;
-  background-size: 150%;
+  background-position: center top;
+  background-size: 200%;
 
   background-color: #00050f;
 }
@@ -62,8 +61,17 @@ a {
   color: black;
 }
 .routerview {
-  padding-top: 15vh;
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
+  /* So the nav doesnt cover the content */
+  padding-top: 200px;
+}
+#navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
 }
 
 /*  */

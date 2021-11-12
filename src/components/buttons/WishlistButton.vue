@@ -112,10 +112,10 @@ h4 {
   display: inline-block;
   min-width: 5ch;
   text-align: center;
-  border: 1px solid black;
+  border: 2px solid #00ffce;
   border-radius: 100px;
   padding: 0.8rem 1.1rem;
-  color: black;
+  color: white;
   background-color: transparent;
   margin-right: 1rem;
 }
@@ -124,11 +124,15 @@ h4 {
   font-weight: normal;
 }
 .wishBtn:hover {
+  border: 2px solid black;
   background-color: black;
   color: white;
 }
 .wishBtn:active {
   transform: scale(0.96);
+}
+button {
+  cursor: pointer;
 }
 
 /* Wish Alert - Used to inform that program has been added or removed*/

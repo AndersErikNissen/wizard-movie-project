@@ -25,11 +25,11 @@ export default {
     display: inline-block;
     min-width: 5ch;
     text-align: center;
-    border: 1px solid white;
+    border: none;
+    background-color: #001244;
     border-radius: 100px;
-    padding: .8rem 1.1rem;
+    padding: .4rem .8rem;
     color: white;
-    background-color: transparent;
     margin-right: 1rem;
 }
 .genreTag {
@@ -37,8 +37,7 @@ export default {
     font-weight: normal;
 }
 .genreTag:hover {
-    background-color: black;
-    border: solid 1px black;
+    background-color: #00ffcc;
     color: white;
 }
 .genreTag:active {

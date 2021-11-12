@@ -10,9 +10,6 @@ export default {
         type: String,
       }
     },
-    created() {
-      console.log(this.path)
-    }
 };
 </script>
 

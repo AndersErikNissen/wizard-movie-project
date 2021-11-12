@@ -1,8 +1,8 @@
 <template>
   <main>
-    <display-all id="programsDisplayAll" v-if="!checkGenreId.status" :currentGenre="genreId"></display-all>
+    <display-all id="programsDisplayAll" v-if="checkGenreId === true" :currentGenre="genreId"></display-all>
     <!-- Error handling -->
-    <error-get v-if="checkGenreId.status === true" :errorObject="checkGenreId.error"></error-get>
+    <error-get v-if="checkGenreId.errorStatus" :errorObject="checkGenreId.errorObj"></error-get>
   </main>
 </template>
 
@@ -32,22 +32,23 @@ export default {
       return this.genreId.charAt(0).toUpperCase() + this.genreId.slice(1);
     },
     checkGenreId: function () {
-      // let check = this.genres.indexOf(this.genreId); // .find()??
-      
-      // if(check === -1) {
-      //   let obj = {
-      //     status: true,
-      //     error: {
-      //       title: "Homepage",
-      //       description: "This genre does not exist in our database.",
-      //       returnLink: "/"
-      //     }
-      //   };
-      //   return obj;
-      // } 
+      // Check if the genre is in the Database.
+      let checkGenre = this.genres.find(item => item == this.genreId);
 
-      return true;
-  
+      if(!checkGenre) {
+        checkGenre = {
+          errorStatus: true,
+          errorObj: {
+            title: "Homepage",
+            description: "This genre does not exist in our database.",
+            returnLink: "/"
+          }
+        };
+      } else {
+        checkGenre = true;
+      }
+      console.log(checkGenre)
+      return checkGenre;
     }
   },
   methods: {

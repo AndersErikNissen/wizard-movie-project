@@ -2,12 +2,43 @@
   <main id="main">
     <section v-if="foundData" id="outer">
       <section id="programPoster_container">
-        <img id="programPoster" :src="posterImg" alt="Program Poster" />
-        <section id="programShortInfo_container">
-          <div>
+        <div>
+          <img id="programPoster" :src="posterImg" alt="Program Poster" />
+        </div>
+
+        <section id="content">
+          <section id="content_top">
             <h1>
               {{ idData.title }}
             </h1>
+            <section>
+              <ul id="genreUL">
+                <li v-for="genre in genreArray" :key="genre">
+                  <genre-tag :title="genre"></genre-tag>
+                </li>
+              </ul>
+            </section>
+            <p v-if="idData.description !== ''">
+              {{ idData.description }}
+            </p>
+            <p v-else-if="
+                idData.plprogram$longDescription !== '' &&
+                idData.plprogram$longDescription !== null
+              ">
+              {{ idData.plprogram$longDescription }}
+            </p>
+            <p v-else>
+              <i>The description for this program are missing. Come back later!</i>
+            </p>
+          </section>
+
+          <section id="content_bottom">
+            <wish-btn :wishId="programId"></wish-btn>
+          </section>
+        </section>
+
+        <!-- <section id="programShortInfo_container">
+          <div>
             <section id="programShortInfo">
               <h4><span>Director: </span>{{ directorArray[0] }}</h4>
               <h4><span>Year: </span> {{ idData.plprogram$year }}</h4>
@@ -34,34 +65,7 @@
       <section id="programLongInfo_container">
         <section>
           <h2>Long Description</h2>
-          <p
-            v-if="
-              idData.plprogram$longDescription !== '' &&
-              idData.plprogram$longDescription !== null
-            "
-          >
-            {{ idData.plprogram$longDescription }}
-          </p>
-          <p v-else>
-            <i>Long description are missing!</i>
-          </p>
-        </section>
-        <section>
-          <h2>Genre(s):</h2>
-          <ul id="genreUL">
-            <li v-for="genre in genreArray" :key="genre">
-              <genre-tag :title="genre"></genre-tag>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Actors:</h2>
-          <ul id="actorUL">
-            <li v-for="actor in actorArray" :key="actor">
-              {{ actor }}
-            </li>
-          </ul>
-        </section>
+        </section> -->
       </section>
     </section>
 
@@ -148,9 +152,8 @@ export default {
         }
       }
       // If there was no match, use a noImg
-      poster = "assets/img/noImg_v3_large.png"
+      poster = "assets/img/noImg_v3_large.png";
       return poster;
-    
     },
     backdrop: function () {
       let backdrop = null;
@@ -257,7 +260,6 @@ ul {
   background-repeat: no-repeat;
   background-size: contain;
 
-  /* text-align: center; */
   justify-self: center;
 
   grid-area: 1 / 2 / 2 / 12;
