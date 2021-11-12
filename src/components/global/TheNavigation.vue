@@ -103,7 +103,6 @@ button:active {
   justify-content: space-between;
   width: 100%;
   height: auto;
-  padding: 1rem;
 }
 #svg {
   width: 60px;
@@ -151,6 +150,7 @@ ul {
 #svgDiv {
   display: flex;
   align-items: center;
+  margin: 1rem;
 }
 #svgRouter,
 #menuDiv {

@@ -1,6 +1,7 @@
 <template>
-  <the-nav :genres="genres"></the-nav>
   <router-view class="routerview"/>
+  <the-nav :genres="genres"></the-nav>
+  <!-- The Nav is placed below in order to always be on top of the other elements. Because of the stackingorder. -->
 </template>
 
 <script>
@@ -47,16 +48,6 @@ export default {
 * {
   box-sizing: border-box;
 }
-
-#nav {
-  padding: 30px;
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  background-color: white;
-}
-
 a {
   font-weight: bold;
   color: #000000;

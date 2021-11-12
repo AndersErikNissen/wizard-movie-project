@@ -163,14 +163,18 @@ export default {
 </script>
 
 <style scoped>
+.outer {
+  position: relative;
+  z-index: 0;
+}
 .outerInfoBox_movie,
 .outerInfoBox_series {
   /* Help from this article: https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 */
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-
   padding: 0 0 1rem 0;
+  z-index: 0;
 }
 .infoBox {
   flex: 0 0 auto;
@@ -193,13 +197,17 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 0;
 }
 
 .shellMovie,
 .shellSeries {
   margin: 0 0 2rem 0;
   position: relative;
+  z-index: 0;
 }
+
+
 /* Scrollbar design */
 ::-webkit-scrollbar {
   height: 8px;
