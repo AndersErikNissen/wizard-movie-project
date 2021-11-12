@@ -144,4 +144,10 @@ h1 {
     width: 100%;
     max-width: 220px;
 }
+
+@media screen and (max-width: 468px) {
+  .intro{
+    padding: 0 1rem;
+  }
+}
 </style>

@@ -27,11 +27,8 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
 #app {
   font-family: 'Inter', sans-serif;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  /* color: #2c3e50; */
   color: rgb(255, 255, 255);
 }
 #app{
@@ -86,5 +83,11 @@ a {
 }
 ::-webkit-scrollbar-thumb:active {
   background-color: #00ffcca6;
+}
+
+@media screen and (max-width: 468px) {
+  .routerview {
+  padding-top: 100px;
+}
 }
 </style>

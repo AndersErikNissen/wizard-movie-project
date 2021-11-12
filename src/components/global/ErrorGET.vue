@@ -65,4 +65,12 @@ main {
     width: 100%;
     max-width: 220px;
 }
+@media screen and (max-width: 1024px) {
+  main {
+    padding: 0 1rem;
+  }
+  .svgSection {
+    padding: 2rem 1rem;
+}
+}
 </style>

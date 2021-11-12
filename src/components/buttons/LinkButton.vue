@@ -27,6 +27,7 @@ export default {
   color: white;
   background-color: transparent;
   font-size: .8rem;
+  text-decoration-line: none;
 }
 .linkButton:hover {
   background-color: black;

@@ -1,11 +1,10 @@
 <template>
   <main id="main">
-    <section v-if="foundData" id="outer">
-      <section id="programPoster_container">
+    <div v-if="foundData" id="divOuter">
+      <section id="contentContainer">
         <div>
           <img id="programPoster" :src="posterImg" alt="Program Poster" />
         </div>
-
         <section id="content">
           <section id="content_top">
             <h1>
@@ -21,55 +20,67 @@
             <p v-if="idData.description !== ''">
               {{ idData.description }}
             </p>
-            <p v-else-if="
+            <p
+              v-else-if="
+                /* If there are no normal description use the longdescription */
                 idData.plprogram$longDescription !== '' &&
                 idData.plprogram$longDescription !== null
-              ">
+              "
+            >
               {{ idData.plprogram$longDescription }}
             </p>
             <p v-else>
-              <i>The description for this program are missing. Come back later!</i>
+              <i
+                >The description for this program are missing. Come back
+                later!</i
+              >
             </p>
+            <section id="iconDiv">
+              <icon-div
+                :title="idData.plprogram$year"
+                path="assets/img/calender_icon_blue.png"
+              ></icon-div>
+              <icon-div
+                :title="runtimeMin"
+                path="assets/img/clock_icon_blue.png"
+              ></icon-div>
+            </section>
           </section>
 
           <section id="content_bottom">
-            <wish-btn :wishId="programId"></wish-btn>
-          </section>
-        </section>
-
-        <!-- <section id="programShortInfo_container">
-          <div>
-            <section id="programShortInfo">
-              <h4><span>Director: </span>{{ directorArray[0] }}</h4>
-              <h4><span>Year: </span> {{ idData.plprogram$year }}</h4>
-              <h4><span>Runtime: </span> {{ runtimeMin }}min</h4>
-              <wish-btn :wishId="programId"></wish-btn>
+            <section>
+              <h2>Director</h2>
+              <ul id="directorUL">
+                <li v-for="director in directorArray" :key="director">
+                  <h4 class="liH4">
+                    {{ director }}
+                  </h4>
+                </li>
+              </ul>
             </section>
-          </div>
-          <section>
-            <h2>Short Description</h2>
-            <p v-if="idData.description !== ''">
-              {{ idData.description }}
-            </p>
-            <p v-else>
-              <i>Short description are missing!</i>
-            </p>
+            <section>
+              <h2>Actors</h2>
+              <ul id="actorUL">
+                <li v-for="(actor, index) in actorArray" :key="index">
+                  <h4 class="liH4">{{ actor }}</h4>
+                </li>
+              </ul>
+            </section>
+            <wish-btn id="wishBtn" :wishId="programId"></wish-btn>
           </section>
         </section>
       </section>
-
-      <div
-        id="backdrop"
-        :style="'background-image: url(' + backdrop + ');'"
-      ></div>
-      <section id="programLongInfo_container">
-        <section>
-          <h2>Long Description</h2>
-        </section> -->
-      </section>
-    </section>
-
-    <!-- V-if is used insted of v-else, because it shouldn't be loaded before the GET-request is done and that there is an error -->
+    </div>
+    <div
+      v-if="foundData"
+      id="backdrop"
+      :style="
+        'background-image: linear-gradient(180deg, rgba(0,6,22,1) 0%, rgba(0,6,22,0) 100%), url(' +
+        backdrop +
+        ');'
+      "
+    ></div>
+    <!-- V-if is used instead of v-else, because it shouldn't be loaded before the GET-request is done and that there is an error -->
     <error-get
       id="errorArea"
       v-if="!foundData && idData"
@@ -83,6 +94,8 @@ import axios from "axios";
 import ErrorGET from "../components/global/ErrorGET.vue";
 import GenreTag from "../components/buttons/GenreTag.vue";
 import WishBtn from "../components/buttons/WishlistButton.vue";
+import Icon from "../components/global/ProgramIcon.vue";
+
 export default {
   name: "Template",
   props: {
@@ -95,6 +108,14 @@ export default {
     "error-get": ErrorGET,
     "genre-tag": GenreTag,
     "wish-btn": WishBtn,
+    "icon-div": Icon,
+  },
+  data() {
+    return {
+      foundData: false,
+      idData: false,
+      getError: false,
+    };
   },
   computed: {
     updateError: function () {
@@ -128,11 +149,17 @@ export default {
     },
     actorArray: function () {
       let newArray = [];
+      // for(let i = 0; i < this.actorRange; i++) {
+      //   if (this.idData.plprogram$credits[i].plprogram$creditType == "actor") {
+      //     newArray.push(this.idData.plprogram$credits[i].plprogram$personName);
+      //   }
+      // }
       this.idData.plprogram$credits.forEach((actor) => {
         if (actor.plprogram$creditType == "actor") {
-          newArray.push(actor.plprogram$personName);
+          newArray.push(actor.plprogram$personName + ",");
         }
       });
+
       return newArray;
     },
     posterImg: function () {
@@ -174,15 +201,10 @@ export default {
     },
     runtimeMin: function () {
       // Turn seconds in to min to show on the front-end, for runtime.
-      return this.idData.plprogram$runtime / 60;
+      let number = this.idData.plprogram$runtime / 60,
+        returnNumber = number.toString();
+      return returnNumber + "min";
     },
-  },
-  data() {
-    return {
-      foundData: false,
-      idData: false,
-      getError: false,
-    };
   },
   methods: {
     loadData() {
@@ -254,62 +276,60 @@ ul {
   grid-template-columns: repeat(12, 1fr);
   justify-content: center;
 }
-#outer,
+#contentContainer,
 #errorArea {
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  justify-self: center;
-
-  grid-area: 1 / 2 / 2 / 12;
   display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  flex-direction: column;
-
   max-width: 1280px;
 }
+#divOuter,
+#errorArea {
+  justify-self: left;
 
-#programPoster_container {
-  display: flex;
-  /* justify-content: space-evenly; */
-  width: 100%;
+  grid-area: 1 / 2 / 2 / 12;
 }
-#programShortInfo_container {
-  padding: 0 1rem;
-  display: flex;
+
+#errorArea {
   flex-direction: column;
-  /* justify-content: space-between; */
+  align-items: center;
 }
-#programShortInfo_container p {
-  margin: 0;
+#content {
+  margin: 0 0 0 2rem;
 }
+
+#backdrop {
+  width: 100%;
+  /* Height is set to px, because we know the height of our image */
+  grid-area: 2 / 2 / 3/ 12;
+  height: 324px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 3rem 0 0 0;
+  max-width: 1280px;
+  opacity: 0.5;
+}
+
 #programPoster {
   width: 408px;
   height: 594px;
 }
 
 #genreUL,
-#actorUL {
+#actorUL,
+#directorUL {
   display: flex;
   list-style-type: none;
   flex-wrap: wrap;
 }
-#genreUL li {
-  display: block;
+
+#iconDiv {
+  display: flex;
 }
-#actorUL li {
+.liH4 {
   margin: 0 1rem 1rem 0;
 }
-
-#backdrop {
-  width: 100%;
-  /* Height is set to px, because we know the height of our image */
-  height: 324px;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 1rem 0;
+#wishBtn {
+  position: relative;
+  z-index: 1;
 }
 
 /* Media Queries */
@@ -317,15 +337,45 @@ ul {
   #main {
     grid-template-columns: repeat(8, 1fr);
   }
-  #outer,
+  #divOuter,
   #errorArea {
     grid-area: 1 / 2 / 2 / 8;
   }
-  #programPoster_container {
-    flex-direction: column;
+  #backdrop {
+    grid-area: 2 / 1 / 3/ 8;
   }
-  #programShortInfo_container {
+  #contentContainer {
+    flex-direction: column;
     padding: 0;
+  }
+  #content {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  #main {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #divOuter,
+  #errorArea {
+    grid-area: 1 / 1 / 2 / 5;
+    padding: 0 2rem;
+  }
+  #backdrop {
+    grid-area: 2 / 1 / 3/ 5;
+  }
+}
+@media screen and (max-width: 468px) {
+  #divOuter,
+  #errorArea {
+    padding: 0 10px;
+  }
+  #programPoster {
+    width: 280px;
+    height: auto;
+  }
+   h1 {
+    font-size: 2rem;
   }
 }
 </style>

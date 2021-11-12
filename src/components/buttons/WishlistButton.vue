@@ -1,10 +1,12 @@
 <template>
   <section>
     <button class="wishBtn" v-if="checkIfOnWishlist" @click="addToWishlist">
-      Add Wish
+      <span>Add Wish</span>
+      <img src="assets/img/wand_icon_blue.png" alt="Image of wand">
     </button>
     <button class="wishBtn" v-else @click="removeFromWishlist">
-      Remove Wish
+      <span>Remove Wish</span>
+      <img src="assets/img/wand_icon_blue.png" alt="Image of wand">
     </button>
 
     <section class="alertBox" v-if="alertAdd">
@@ -111,7 +113,6 @@ h4 {
 .wishBtn {
   display: inline-block;
   min-width: 5ch;
-  text-align: center;
   border: 2px solid #00ffce;
   border-radius: 100px;
   padding: 0.8rem 1.1rem;
@@ -121,6 +122,7 @@ h4 {
 }
 .wishBtn {
   text-decoration-line: none;
+  font-size: .8rem;
   font-weight: normal;
 }
 .wishBtn:hover {
@@ -131,8 +133,15 @@ h4 {
 .wishBtn:active {
   transform: scale(0.96);
 }
-button {
+.wishBtn {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+img {
+  height: 18px;
+  margin: 0 0 0 8px;
 }
 
 /* Wish Alert - Used to inform that program has been added or removed*/
@@ -145,10 +154,10 @@ section.alertBox  {
   width: 100%;
 }
 .wishAlert {
-  background-color: black;
-  color: white;
+  background-color: #00ffce;
+  color: #00050f;
   display: inline-block;
   border-radius: 100px;
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 </style>
