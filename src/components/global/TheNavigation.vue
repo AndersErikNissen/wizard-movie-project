@@ -33,7 +33,7 @@
         </ul>
 
         <section id="genreNav">
-          <h2>Genres:</h2>
+          <h2>Genres</h2>
           <ul class="genreUL">
             <li @click="show = false" v-for="genre in genres" :key="genre">
               <genre-tag :title="genre"></genre-tag>
@@ -123,6 +123,17 @@ ul {
   font-size: 2rem;
   margin: 2rem 0;
   text-align: center;
+}
+.navLi a {
+  display: block;
+  font-size: 3rem;
+  color: white;
+}
+.navLi a:hover {
+  color: black;
+}
+.navLi a:active {
+  transform: scale(.96);
 }
 
 #nav {

@@ -62,7 +62,7 @@ a {
   z-index: 1;
   min-height: 100vh;
   /* So the nav doesnt cover the content */
-  padding-top: 200px;
+  padding-top: 150px;
 }
 #navigation {
   position: fixed;

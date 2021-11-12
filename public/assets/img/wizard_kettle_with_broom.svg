@@ -18,19 +18,19 @@
             }
 
             .cls-5 {
-                fill: #f90;
+                fill: #F7FFE5;
             }
 
             .cls-6 {
-                fill: #c30;
+                fill:#FAB366;
             }
 
             .cls-7 {
-                fill: #f09;
+                fill: #FA7D19;
             }
 
             .cls-8 {
-                fill: #f3f;
+                fill: #FFBB00;
             }
 
             .cls-9 {
@@ -212,7 +212,7 @@
             @keyframes fireANI2 {
                 50% {
                     transform: translateY(-5px);
-                    fill: rgb(255, 0, 212);
+                    /* fill: rgb(255, 0, 212); */
                 }
             }
 
