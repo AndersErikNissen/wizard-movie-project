@@ -18,7 +18,7 @@
       </div>
     </section>
     <div class="divSVG">
-      <svg-temp></svg-temp>
+      <svg-temp :path="'assets/img/wizard_kettle_with_broom.svg'"></svg-temp>
     </div>
   </section>
 </template>
@@ -54,7 +54,7 @@ p {
   width: 100%;
   /* flex-direction: column; */
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 3rem;
 
   /* margin: 0 0 0 4rem; */
@@ -64,7 +64,7 @@ p {
   box-sizing: border-box;
 }
 span {
-  color:  #00ffce;;
+  color:  #00ffce;
 }
 @media screen and (max-width: 1024px) {
   h1 {

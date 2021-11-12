@@ -115,13 +115,12 @@ export default {
           this.genre.programs.series = response.data.entries;
 
           // If there are no series to a genre, then dont show that content area, same with "show more btn".
-          if(response.data.entries.length === 0) {
+          if (response.data.entries.length === 0) {
             this.noSeries = true;
           }
-          if(response.data.entries.length < 12) {
+          if (response.data.entries.length < 12) {
             this.under10series = true;
           }
-          
         });
     },
     getCount() {
@@ -177,8 +176,29 @@ export default {
   flex: 0 0 auto;
 }
 
-.shellMovie {
+/* Fade on right side */
+.shellMovie::after,
+.shellSeries::after {
+  content: "";
+  display: block;
+  background: rgb(0, 6, 22);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 6, 22, 0) 0%,
+    rgba(0, 6, 22, 0) 10%,
+    rgba(0, 6, 22, 1) 100%
+  );
+  width: 10%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.shellMovie,
+.shellSeries {
   margin: 0 0 2rem 0;
+  position: relative;
 }
 /* Scrollbar design */
 ::-webkit-scrollbar {
@@ -210,7 +230,7 @@ export default {
   font-size: 2rem;
   margin: 0;
   margin-bottom: 1rem;
-  color:  #00ffce;;
+  color: #00ffce;
 }
 #genreTitle a {
   color: white;

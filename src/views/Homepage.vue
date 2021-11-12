@@ -50,6 +50,8 @@ main {
 }
   .genreBody {
     margin: 2rem 4rem;
+    position: relative;
+    z-index: 0;
   }
 @media screen and (max-width: 1024px) {
     .genreBody {

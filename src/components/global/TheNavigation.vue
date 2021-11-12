@@ -1,7 +1,7 @@
 <template>
   <section class="outer">
     <section id="logoMenu">
-        <!-- <div class="emptyDiv"></div> -->
+      <!-- <div class="emptyDiv"></div> -->
       <router-link to="/" id="svgRouter">
         <div id="svgDiv" @click="show = false">
           <object id="svg" :data="objectSVG" type="image/svg+xml"></object>
@@ -71,7 +71,6 @@ export default {
 <style scoped>
 #logoMenu {
   background-color: #00081e;
-
 }
 h2 {
   margin: 0 3px;
@@ -116,18 +115,6 @@ button:active {
   align-items: center;
   cursor: pointer;
 }
-#nav {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-
-  z-index: 1;
-  background-color: #2a38b7;
-}
 ul {
   list-style-type: none;
   margin: 0;
@@ -138,14 +125,36 @@ ul {
   margin: 2rem 0;
   text-align: center;
 }
+
+#nav {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
+  z-index: 3;
+  background-color: #2a38b7;
+}
+#svgDiv {
+  /* Makes the logo visible and gives a cool effect */
+  background: rgb(0, 6, 22);
+  background: radial-gradient(
+    circle,
+    rgba(0, 6, 22, 1) 30%,
+    rgba(0, 6, 22, 0) 70%
+  );
+}
 #menuDiv,
 #svgDiv {
   display: flex;
   align-items: center;
-  z-index: 2;
 }
-#svgRouter {
-  z-index: 2;
+#svgRouter,
+#menuDiv {
+  z-index: 4;
 }
 #svgDiv h2 {
   margin: 0 1rem;
@@ -177,15 +186,9 @@ a#svgRouter.router-link-exact-active {
 .genreUL li {
   margin: 0.4rem 0;
 }
-
-/* .emptyDiv {
-  Just makes it easier to center logo 
-  width: 37px;
-  height: 0px;
-} */
 @media screen and (max-width: 468px) {
   #nav {
-    padding: .5rem;
+    padding: 0.5rem;
   }
 }
 </style>

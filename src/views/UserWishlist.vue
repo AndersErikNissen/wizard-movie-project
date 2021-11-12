@@ -24,21 +24,26 @@
           :linkObject="{ title: 'Homepage', returnLink: '/' }"
         ></link-btn>
       </div>
+        <section class="svgSection">
+          <svg-temp :path="'assets/img/noWish_large_icon.svg'"></svg-temp>
+        </section>
     </section>
   </main>
 </template>
 
 <script>
-import ProgramInfoBox from "../components/global/ProgramInfobox.vue";
-import Btn from "../components/buttons/ClickButton.vue";
-import LinkBtn from "../components/buttons/LinkButton.vue";
-import axios from "axios";
+import ProgramInfoBox from "../components/global/ProgramInfobox.vue"
+import Btn from "../components/buttons/ClickButton.vue"
+import LinkBtn from "../components/buttons/LinkButton.vue"
+import axios from "axios"
+import SVG from "../components/global/SVGTemplate.vue"
 export default {
   name: "UserWishlist",
   components: {
     "info-box": ProgramInfoBox,
     "click-btn": Btn,
     "link-btn": LinkBtn,
+    "svg-temp": SVG
   },
   data() {
     return {
@@ -127,5 +132,16 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.svgSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+.svgSection img {
+    width: 100%;
+    max-width: 220px;
 }
 </style>
